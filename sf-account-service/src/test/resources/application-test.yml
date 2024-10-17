@@ -1,0 +1,32 @@
+# Please Note : Create an account in salesforce.com and provide your salesforce username, salesforce password, salesforce client_id,
+# salesforce client_secret and salesforce security token to run integration test using mvn clean verify or directly from Intellij.
+
+# salesforce configuration
+salesforce:
+  username: [ YOUR_SALESFORCE_USERNAME ]
+  password: [ YOUR_SALESFORCE_PASSWORD ]
+  clientId: [ YOUR_SALESFORCE_CLIENT_ID ]
+  clientSecret: [ YOUR_SALESFORCE_CLIENT_SECRET ]
+  securityToken: [ YOUR_SALESFORCE_SECURITY_TOKEN ]
+  tokenUrl: https://login.salesforce.com/services/oauth2/token
+
+# h2 database Configuration
+  spring:
+    datasource:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'classpath:init.sql'
+      username: sa
+      password: sa
+      hikari.maximum-pool-size: 2
+      # Hibernate ddl auto (create, create-drop, update)
+      jpa:
+        generate-ddl: true
+        hibernate.ddl-auto: create
+        show-sql: true
+        properties:
+          hibernate:
+            dialect: org.hibernate.dialect.H2Dialect
+
+
+
+
