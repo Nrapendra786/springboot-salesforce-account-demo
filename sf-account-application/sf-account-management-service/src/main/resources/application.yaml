@@ -1,0 +1,23 @@
+server:
+  port: 8082
+  application:
+    name: sf-account-management-service
+logging:
+  file:
+    name: logs/sf-account-management-service.log
+
+spring:
+  kafka:
+    consumer:
+       auto-offset-reset: earliest
+       bootstrap-servers: localhost:29092
+       group-id: replace with your group id
+       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+       properties:
+         spring.json.trusted.packages: com.learning.events # change this with your event packages
+    producer:
+      acks: -1
+      bootstrap-servers: localhost:29092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
