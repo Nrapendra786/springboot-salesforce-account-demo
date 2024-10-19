@@ -1,5 +1,5 @@
  services:
-  app:
+  account-service:
     build: ../sf-account-application/sf-account-service  # Ensure this is the correct relative path
     ports:
       - "8081:8080"
@@ -13,40 +13,34 @@
       - LOGGING_FILE_NAME=/logs/salesforce-account-management.log
     volumes:
       - log_volume:/logs
+  pub-sub-java-client:
+    build: ../sf-account-application/sf-pub-sub-java-client
     depends_on:
       - kafka
-  zookeeper:
-    image: confluentinc/cp-zookeeper:latest
     environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     ports:
-      - "22181:2181"
-
+      - "8082:8080"
+  sf-account-management-service:
+    build: ../sf-account-application/sf-account-management-service
+    depends_on:
+      - kafka
+    environment:
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "8083:8080"
+  zookeeper:
+    image: wurstmeister/zookeeper:latest
   kafka:
-    image: confluentinc/cp-kafka:latest
+    image: wurstmeister/kafka:2.13-2.8.1
     depends_on:
       - zookeeper
-    ports:
-      - "29092:29092"
     environment:
-      KAFKA_BROKER_ID: 1
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ADVERTISED_PORT: 9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-
-  kafka-ui:
-    image: provectuslabs/kafka-ui:latest
-    depends_on:
-      - kafka
-    ports:
-      - "8090:8080"
-    environment:
-      KAFKA_CLUSTERS_0_NAME: local
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
-      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "events:5:1"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
  volumes:
    log_volume:
      driver: local
