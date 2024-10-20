@@ -1,4 +1,4 @@
-# Demo Project using Salesforce, Java, SpringBoot and Apache Kafka
+# Demo Project developed using Salesforce, Java, SpringBoot and Apache Kafka
 
 ## Prerequisites
   Java 17 and Docker must be installed in the system
