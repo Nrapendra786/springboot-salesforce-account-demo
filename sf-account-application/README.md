@@ -30,10 +30,10 @@ I created following service in this demo project.
     Follow the guidelines on /sf-account.management-service/README.md 
 
 # Start Application
-   cd [path to rootfolder] 
+   cd [path to rootfolder] <br/>
    docker-compose up -d
 # Stop Application
-  cd [path to rootfolder] 
+  cd [path to rootfolder]  <br/>
    docker-compose down --rmi all
 # Contact Author
   trivajay259@gmail.com
