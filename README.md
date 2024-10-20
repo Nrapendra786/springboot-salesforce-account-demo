@@ -15,7 +15,7 @@ Before starting to use this project, please create a Salesforce account. After t
 
 I created following services in this demo project.
 ## 1) sf-account-service :
-   This service enable user to perform Create,Read,Update and Delete Operations on Salesforce Cloud
+   This service enable user to perform Create, Read, Update and Delete Operations on Salesforce Cloud
    ## How to use sf-account-service:
      After setting the environment variables, the user must start the application. Once the application is running, go to the following URL:
      [your host name]:[your port number]/swagger-ui/index.html. The user will then be prompted to enter a username and password.
