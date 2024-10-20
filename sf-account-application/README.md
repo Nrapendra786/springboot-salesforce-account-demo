@@ -3,14 +3,13 @@
 ## Prerequisites
   Java 17 and Docker must be installed in the system
 
-Before start using this project, please create a salesforce account and after that create new connectedApp and take following parameters from salesforce.com
+Before start using this project, please create a salesforce account and after that create new connectedApp and save following parameters from salesforce.com in environment variable
 1) username
 2) password
 3) client_id
 4) client_secret
 5) security_token
-6) login_url <br/>
-save these parameters in environment variable
+6) login_url
 
 I created following service in this demo project.
 ## 1) sf-account-service :
