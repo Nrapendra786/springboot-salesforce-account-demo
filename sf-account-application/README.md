@@ -13,10 +13,10 @@ I created following service in this demo project.
 # 1) sf-account-service :
    This service enable user to perform Create,Read,Update and Delete Operations on Salesforce Cloud
    # How to use sf-account-service:
-       After setting environment variable, user must start application , after starting application go to following URL
-       [your host name]:[your port number]/swagger-ui/index.html , after that user is shown a window to enter username and password
-       Here USERNAME and PASSWORD are test and test.After entering correct username, user is forwarded to a swagger-ui page, allowing user to perform CRUD operations on
-       salesforce. 
+     After setting the environment variables, the user must start the application. Once the application is running, go to the following URL:
+     [your host name]:[your port number]/swagger-ui/index.html. The user will then be prompted to enter a username and password.
+     The USERNAME and PASSWORD are both "test". After entering the correct credentials, the user will be redirected to the Swagger UI page, where they can perform CRUD 
+     operations on Salesforce.
 # 2) sf-pub-sub-java-client
      This service notifies user upon any change in Account provided change event is correctly configured on Salesforce Cloud.
   # How to use sf-pub-sub-java-client
