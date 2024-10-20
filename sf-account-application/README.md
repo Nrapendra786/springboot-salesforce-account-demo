@@ -23,6 +23,8 @@ I created following service in this demo project.
      Follow the guidelines on /sf-pub-sub-java-client/README.md 
 # 3) sf-account.management-service
   This service notifies read data from kafka-topic, write data to local database and allow use to see data stored on database on swagger-ui.
+   # How to use sf-account.management-service
+    Follow the guidelines on /sf-account.management-service/README.md 
 
 # Start Application
    cd [path to rootfolder] 
