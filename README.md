@@ -4,15 +4,16 @@ PROJECT_STATUS: WORKING
 ## Prerequisites
   Java 17 and Docker must be installed in the system
 
-Before start using this project, please create a salesforce account and after that create new connectedApp and save following parameters from salesforce.com in environment variable
-1) username
-2) password
-3) client_id
-4) client_secret
-5) security_token
-6) login_url
+Before starting to use this project, please create a Salesforce account. After that, create a new connected app and save the following parameters from Salesforce.com in environment variables:
 
-I created following service in this demo project.
+1) Username
+2) Password
+3) Client ID
+4) Client Secret
+5) Security Token
+6) Login URL
+
+I created following services in this demo project.
 ## 1) sf-account-service :
    This service enable user to perform Create,Read,Update and Delete Operations on Salesforce Cloud
    ## How to use sf-account-service:
