@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: [service1, service2, service3]  # List of microservices
+        service: [sf-account-service, sf-pub-sub-java-client, sf-account-management-service]  # List of microservices
 
     steps:
       - name: Checkout Code
