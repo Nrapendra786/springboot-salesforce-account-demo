@@ -8,6 +8,13 @@
     <artifactId>springboot-salesforce-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -20,6 +27,7 @@
         <module>sf-account-service</module>
         <module>sf-pub-sub-java-client</module>
         <module>sf-account-management-service</module>
+        <module>commons</module>
     </modules>
 
     <properties>

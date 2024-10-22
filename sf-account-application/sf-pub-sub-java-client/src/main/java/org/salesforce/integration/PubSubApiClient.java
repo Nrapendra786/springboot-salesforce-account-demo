@@ -108,7 +108,7 @@ public class PubSubApiClient {
 		// WARNING: This is a hack for the demo, use a separate thread for production
 		while (!this.isShuttingDown) {
 			try {
-				Thread.sleep(50);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -141,5 +141,5 @@ public class PubSubApiClient {
 		public PubSubException(String message, Exception causedBy) {
 			super(message, causedBy);
 		}
-	};
+	}
 }

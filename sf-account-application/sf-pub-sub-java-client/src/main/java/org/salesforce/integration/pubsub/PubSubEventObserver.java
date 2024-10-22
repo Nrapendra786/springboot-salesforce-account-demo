@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.apache.avro.Schema;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.salesforce.integration.PubSubApiClient;
 import org.salesforce.integration.pubsub.events.ChangeEventHeader;
 import org.salesforce.integration.pubsub.events.Event;
@@ -17,6 +18,7 @@ import com.salesforce.eventbus.protobuf.FetchResponse;
 
 import io.grpc.stub.ClientCallStreamObserver;
 import io.grpc.stub.ClientResponseObserver;
+import org.salesforce.integration.pubsub.kafka.EventProducer;
 
 public class PubSubEventObserver implements ClientResponseObserver<FetchRequest, FetchResponse> {
 	private PubSubApiClient client;
@@ -47,6 +49,20 @@ public class PubSubEventObserver implements ClientResponseObserver<FetchRequest,
 				logger.info(header.getChangeType() + " operation on " + header.getEntityName() + " with record ID "
 						+ String.join(",", header.getRecordIds()));
 				logger.info("Changed fields: " + String.join(", ", header.getChangedFields()));
+
+				var eventProduce = new EventProducer().eventProduce();
+
+				ProducerRecord<String, String> record =
+						new ProducerRecord<String, String>("salesforce_topic", "Hello World");
+
+				eventProduce.send(record);
+
+				// Tell producer to send all data and block until complete - synchronous
+				eventProduce.flush();
+
+				// Close the producer
+				eventProduce.close();
+
 			}	
 		} catch (EventParseException e) {
 			logger.log(Level.SEVERE, "Failed to parse message: " + e.getMessage(), e);

@@ -47,7 +47,7 @@ public class Config {
 
 	public static Config get() {
 		if (config == null) {
-			try (InputStream input = new FileInputStream(System.getProperty("user.dir") +"\\sf-integration-service\\config.properties")) {
+			try (InputStream input = new FileInputStream(System.getProperty("user.dir") +"\\sf-pub-sub-java-client\\config.properties")) {
 				Properties prop = new Properties();
 				prop.load(input);
 				config = new Config();
