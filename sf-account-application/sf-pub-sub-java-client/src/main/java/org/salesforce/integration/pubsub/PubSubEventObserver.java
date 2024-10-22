@@ -1,24 +1,23 @@
 package org.salesforce.integration.pubsub;
 
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import com.nrapendra.Message;
+import com.salesforce.eventbus.protobuf.ConsumerEvent;
+import com.salesforce.eventbus.protobuf.FetchRequest;
+import com.salesforce.eventbus.protobuf.FetchResponse;
+import io.grpc.stub.ClientCallStreamObserver;
+import io.grpc.stub.ClientResponseObserver;
 import org.apache.avro.Schema;
-import org.apache.kafka.clients.producer.ProducerRecord;
 import org.salesforce.integration.PubSubApiClient;
 import org.salesforce.integration.pubsub.events.ChangeEventHeader;
 import org.salesforce.integration.pubsub.events.Event;
 import org.salesforce.integration.pubsub.events.EventParser;
 import org.salesforce.integration.pubsub.events.EventParser.EventParseException;
-
-import com.salesforce.eventbus.protobuf.ConsumerEvent;
-import com.salesforce.eventbus.protobuf.FetchRequest;
-import com.salesforce.eventbus.protobuf.FetchResponse;
-
-import io.grpc.stub.ClientCallStreamObserver;
-import io.grpc.stub.ClientResponseObserver;
 import org.salesforce.integration.pubsub.kafka.EventProducer;
+
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PubSubEventObserver implements ClientResponseObserver<FetchRequest, FetchResponse> {
 	private PubSubApiClient client;
@@ -50,19 +49,13 @@ public class PubSubEventObserver implements ClientResponseObserver<FetchRequest,
 						+ String.join(",", header.getRecordIds()));
 				logger.info("Changed fields: " + String.join(", ", header.getChangedFields()));
 
-				var eventProduce = new EventProducer().eventProduce();
+				var message= Message.builder()
+						.id(value.getRpcId())
+						.payload(String.valueOf(event.getPayload()).getBytes(StandardCharsets.UTF_8))
+						.schema_id(String.valueOf(event.getReplayId())).build();
 
-				ProducerRecord<String, String> record =
-						new ProducerRecord<String, String>("salesforce_topic", "Hello World");
-
-				eventProduce.send(record);
-
-				// Tell producer to send all data and block until complete - synchronous
-				eventProduce.flush();
-
-				// Close the producer
-				eventProduce.close();
-
+				new EventProducer().sendToKafkaTopic(message);
+				logger.info("Event is produced to KafkaTopic");
 			}	
 		} catch (EventParseException e) {
 			logger.log(Level.SEVERE, "Failed to parse message: " + e.getMessage(), e);
