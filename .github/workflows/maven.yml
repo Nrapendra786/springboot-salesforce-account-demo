@@ -41,9 +41,9 @@ jobs:
           overwrite-settings: true
 
       - name: Build and Test ${{ matrix.service }}
-        working-directory: /sf-account-application/${{ matrix.service }}
+        working-directory: ./sf-account-application/${{ matrix.service }}
         run: |
-          cd /sf-account-application/${{ matrix.service }}
+          cd ${{ matrix.service }}
           mvn clean verify 
 
 
