@@ -43,6 +43,9 @@ jobs:
       - name: List directory contents
         run: ls -la /home/runner/work/springboot-salesforce-account-demo/springboot-salesforce-account-demo/sf-account-application/
 
+      - name: Print some information
+        run: echo "Hello $USER. $CLIENT_ID. Using Java Version $PASSWORD"
+        
      # - name: Build and install commons dependency
      #   run: mvn install -pl /home/runner/work/springboot-salesforce-account-demo/springboot-salesforce-account-demo/sf-account-application/commons -am
 
