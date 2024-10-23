@@ -34,7 +34,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = AccountServiceApplication.class,
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource("classpath:application-test.properties") //Need to be changed to application-test.yml
+@TestPropertySource("classpath:application-test.yml") //Need to be changed to application-test.yml
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Slf4j
 public class AccountControllerIntegrationTest {
