@@ -47,7 +47,7 @@ jobs:
      #   run: mvn install -pl /home/runner/work/springboot-salesforce-account-demo/springboot-salesforce-account-demo/sf-account-application/commons -am
 
       - name: Build the project
-        run: mvn clean install -f ./sf-account-application/${{ matrix.service }}/pom.xml
+        run: mvn clean install -f ./sf-account-application/pom.xml
 
       - name: Build and Test ${{ matrix.service }}
         working-directory: ./sf-account-application/${{ matrix.service }}
