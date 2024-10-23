@@ -40,10 +40,11 @@ jobs:
           server-password: ${{ secrets.GITHUB_TOKEN }}
           overwrite-settings: true
 
+      - name: List directory contents
+        run: ls -la /home/runner/work/springboot-salesforce-account-demo/springboot-salesforce-account-demo/sf-account-application/
+
       - name: Build and Test ${{ matrix.service }}
         working-directory: ./sf-account-application/${{ matrix.service }}
-        run: |
-          cd ${{ matrix.service }}
-          mvn clean verify 
+        run: mvn clean verify 
 
 
