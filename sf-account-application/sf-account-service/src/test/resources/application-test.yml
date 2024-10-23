@@ -8,7 +8,7 @@ salesforce:
   clientId: ${{secrets.CLIENT_ID}}
   clientSecret: ${{secrets.CLIENT_SECRET}}
   securityToken: ${{secrets.SECURITY_TOKEN}}
-  tokenUrl: ${{secrets.TOKEN_URL}}
+  tokenUrl: https://login.salesforce.com/services/oauth2/token
 
 # h2 database Configuration
   spring:
