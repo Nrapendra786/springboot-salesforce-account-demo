@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: [sf-account-service, sf-pub-sub-java-client, sf-account-management-service]  # List of microservices
+        service: [/sf-account-application/sf-account-service, /sf-account-application/sf-pub-sub-java-client, sf-account-management-service]  # List of microservices
 
     steps:
       - name: Checkout Code
@@ -41,7 +41,7 @@ jobs:
           overwrite-settings: true
 
       - name: Build and Test ${{ matrix.service }}
-        working-directory: /sf-account-application/${{ matrix.service }}
+        working-directory: ${{ matrix.service }}
         run: |
           cd ${{ matrix.service }}
           mvn clean verify 
