@@ -1,4 +1,4 @@
-PROJECT_STATUS: WORKING
+PROJECT_STATUS: IN PROGRESS
 # Demo Project developed using Salesforce, Java, SpringBoot and Apache Kafka
 
 ## Prerequisites
