@@ -22,74 +22,74 @@ public class SalesforceConnector {
 
     public HttpRequestBase createAccount(SalesforceObject salesforceObject, Account account) throws JsonProcessingException, UnsupportedEncodingException {
 
-        String accessToken = salesforceObject.getAccessToken();
-        String salesforceInstanceUrl = salesforceObject.getInstanceUrl();
+        var accessToken = salesforceObject.getAccessToken();
+        var salesforceInstanceUrl = salesforceObject.getInstanceUrl();
 
-        String url = salesforceInstanceUrl + SALESFORCE_ACCOUNT_URL;
-        HttpPost post = new HttpPost(url);
+        var url = salesforceInstanceUrl + SALESFORCE_ACCOUNT_URL;
+        var post = new HttpPost(url);
         post.setHeader(AUTHORIZATION, BEARER + accessToken);
         post.setHeader(CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
 
-        ObjectMapper objectMapper = new ObjectMapper();
+        var objectMapper = new ObjectMapper();
         var accountData = createAccount(account);
 
-        String json = objectMapper.writeValueAsString(accountData);
+        var json = objectMapper.writeValueAsString(accountData);
         post.setEntity(new StringEntity(json));
         return post;
     }
 
     public HttpRequestBase findAccountById(SalesforceObject salesforceObject, String accountId){
 
-        String accessToken = salesforceObject.getAccessToken();
-        String salesforceInstanceUrl = salesforceObject.getInstanceUrl();
+        var accessToken = salesforceObject.getAccessToken();
+        var salesforceInstanceUrl = salesforceObject.getInstanceUrl();
 
-        String url = salesforceInstanceUrl + SALESFORCE_ACCOUNT_URL;
+        var url = salesforceInstanceUrl + SALESFORCE_ACCOUNT_URL;
 
-        HttpGet get = new HttpGet(url + "/" + accountId);
+        var get = new HttpGet(url + "/" + accountId);
         get.setHeader(AUTHORIZATION, BEARER + accessToken);
         get.setHeader(CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         return get;
     }
 
     public HttpRequestBase findAccountByQuery(SalesforceObject salesforceObject, String query){
-        String accessToken = salesforceObject.getAccessToken();
-        String salesforceInstanceUrl = salesforceObject.getInstanceUrl();
+        var accessToken = salesforceObject.getAccessToken();
+        var salesforceInstanceUrl = salesforceObject.getInstanceUrl();
 
-        String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
+        var encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
         final String baseUrl = salesforceInstanceUrl + SALESFORCE_QUERY_URL + encodedQuery;
 
-        HttpGet get = new HttpGet(baseUrl);
+        var get = new HttpGet(baseUrl);
         get.setHeader(AUTHORIZATION, BEARER + accessToken);
         get.setHeader(CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         return get;
     }
 
     public HttpRequestBase deleteAccountById(SalesforceObject salesforceObject, String accountId){
-        String accessToken = salesforceObject.getAccessToken();
-        String salesforceInstanceUrl = salesforceObject.getInstanceUrl();
+        var accessToken = salesforceObject.getAccessToken();
+        var salesforceInstanceUrl = salesforceObject.getInstanceUrl();
 
-        String url = salesforceInstanceUrl + SALESFORCE_ACCOUNT_URL;
+        var url = salesforceInstanceUrl + SALESFORCE_ACCOUNT_URL;
 
-        HttpDelete delete = new HttpDelete(url + "/" + accountId);
+        var delete = new HttpDelete(url + "/" + accountId);
         delete.setHeader(AUTHORIZATION, BEARER + accessToken);
         delete.setHeader(CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         return delete;
     }
 
     public HttpRequestBase updateAccount(SalesforceObject salesforceObject,String accountId, Account account) throws UnsupportedEncodingException, JsonProcessingException {
-        String accessToken = salesforceObject.getAccessToken();
-        String salesforceInstanceUrl = salesforceObject.getInstanceUrl();
+        var accessToken = salesforceObject.getAccessToken();
+        var salesforceInstanceUrl = salesforceObject.getInstanceUrl();
 
-        String url = salesforceInstanceUrl + SALESFORCE_ACCOUNT_URL;
+        var url = salesforceInstanceUrl + SALESFORCE_ACCOUNT_URL;
 
-        HttpPatch patch = new HttpPatch(url  + accountId);
+        var patch = new HttpPatch(url  + accountId);
         patch.setHeader(AUTHORIZATION, BEARER + accessToken);
         patch.setHeader(CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
 
-        ObjectMapper objectMapper = new ObjectMapper();
+        var objectMapper = new ObjectMapper();
 
         var accountData = createAccount(account);
-        String json = objectMapper.writeValueAsString(accountData);
+        var json = objectMapper.writeValueAsString(accountData);
         patch.setEntity(new StringEntity(json));
         return patch;
     }

@@ -3,7 +3,6 @@ package com.nrapendra.account.controllers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nrapendra.account.config.AppConfig;
 import com.nrapendra.account.exceptions.AccountException;
 import com.nrapendra.account.exceptions.ErrorMessages;
 import com.nrapendra.account.models.Account;

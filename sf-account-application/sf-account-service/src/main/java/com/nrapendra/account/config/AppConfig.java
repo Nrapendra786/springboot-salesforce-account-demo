@@ -8,10 +8,11 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "salesforce")
 @Data
 public class AppConfig {
-    private String username;
+    private String user;
     private String password;
     private String clientId;
     private String clientSecret;
     private String tokenUrl;
     private String securityToken;
+
 }

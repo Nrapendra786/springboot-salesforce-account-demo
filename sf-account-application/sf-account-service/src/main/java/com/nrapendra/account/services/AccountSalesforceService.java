@@ -5,12 +5,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nrapendra.account.exceptions.AccountException;
 import com.nrapendra.account.exceptions.ErrorMessages;
 import com.nrapendra.account.models.Account;
+import com.nrapendra.salesforce.SalesforceAuthService;
 import com.nrapendra.salesforce.SalesforceConnector;
 import com.nrapendra.salesforce.SalesforceObject;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.http.HttpStatus;
@@ -33,57 +32,59 @@ public class AccountSalesforceService {
 
     private final SalesforceConnector salesforceConnector;
 
+    private static final String QUERY_BY_ID_AND_NAME = "SELECT Id,Name from ACCOUNT where Name= ";
+
     public String createAccount(@RequestBody Account account) throws IOException {
-        SalesforceObject salesforceObject = authService.getSalesforceObject();
+        var salesforceObject = authService.getSalesforceObject();
         var post = salesforceConnector.createAccount(salesforceObject, account);
 
-        try (CloseableHttpClient client = HttpClients.createDefault();
-             CloseableHttpResponse response = client.execute(post)) {
+        try (var client = HttpClients.createDefault();
+             var response = client.execute(post)) {
             checkResponseCode(response.getStatusLine().getStatusCode());
             return EntityUtils.toString(response.getEntity());
         }
     }
 
     public String findAccountById(String accountId) throws IOException {
-        SalesforceObject salesforceObject = authService.getSalesforceObject();
+        var salesforceObject = authService.getSalesforceObject();
         var get = salesforceConnector.findAccountById(salesforceObject, accountId);
 
-        try (CloseableHttpClient client = HttpClients.createDefault();
-             CloseableHttpResponse response = client.execute(get)) {
+        try (var client = HttpClients.createDefault();
+             var response = client.execute(get)) {
             checkResponseCode(response.getStatusLine().getStatusCode());
             return EntityUtils.toString(response.getEntity());
         }
     }
 
     public String findAccountByName(String name) throws IOException, URISyntaxException {
-        SalesforceObject salesforceObject = authService.getSalesforceObject();
-        String query = "SELECT Id,Name from ACCOUNT where Name='" + name + "'";
-
+        var salesforceObject = authService.getSalesforceObject();
+        var query = QUERY_BY_ID_AND_NAME + "'" + name + "'";
         var get = salesforceConnector.findAccountByQuery(salesforceObject, query);
-        try (CloseableHttpClient client = HttpClients.createDefault();
-             CloseableHttpResponse response = client.execute(get)) {
+
+        try (var client = HttpClients.createDefault();
+             var response = client.execute(get)) {
             checkResponseCode(response.getStatusLine().getStatusCode());
             return EntityUtils.toString(response.getEntity());
         }
     }
 
     public String updateAccount(String accountId, Account account) throws IOException {
-        SalesforceObject salesforceObject = authService.getSalesforceObject();
+        var salesforceObject = authService.getSalesforceObject();
         var patch = salesforceConnector.updateAccount(salesforceObject, accountId, account);
 
-        try (CloseableHttpClient client = HttpClients.createDefault();
-             CloseableHttpResponse response = client.execute(patch)) {
+        try (var client = HttpClients.createDefault();
+             var response = client.execute(patch)) {
             checkResponseCode(response.getStatusLine().getStatusCode());
             return responseMessage(accountId, response.getStatusLine().getStatusCode(), account);
         }
     }
 
     public String deleteAccount(String accountId) throws IOException {
-        SalesforceObject salesforceObject = authService.getSalesforceObject();
+        var salesforceObject = authService.getSalesforceObject();
         var delete = salesforceConnector.deleteAccountById(salesforceObject, accountId);
 
-        try (CloseableHttpClient client = HttpClients.createDefault();
-             CloseableHttpResponse response = client.execute(delete)) {
+        try (var client = HttpClients.createDefault();
+             var response = client.execute(delete)) {
             int responseCode = response.getStatusLine().getStatusCode();
             checkResponseCode(responseCode);
             return responseMessage(accountId, response.getStatusLine().getStatusCode(), DELETE_REQUEST);

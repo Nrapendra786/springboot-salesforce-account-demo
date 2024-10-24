@@ -1,9 +1,8 @@
-package com.nrapendra.account.services;
+package com.nrapendra.salesforce;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nrapendra.account.config.AppConfig;
-import com.nrapendra.salesforce.SalesforceObject;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpResponse;
@@ -30,8 +29,7 @@ public class SalesforceAuthService {
     private final AppConfig appConfig;
 
     public SalesforceObject getSalesforceObject() throws IOException {
-        log.debug("TOKEN_URL,CLIENT_ID,CLIENT_SECRET,SECURITY_TOKEN,USERNAME, PASSWORD ARE : {} {} {} {} {} {}", appConfig.getTokenUrl(), appConfig.getClientId(), appConfig.getClientSecret(),
-                appConfig.getSecurityToken(), appConfig.getUsername(), appConfig.getPassword());
+        log.debug("USER {} ", appConfig.getUser());
 
         HttpClient client = HttpClientBuilder.create().build();
         HttpPost post = new HttpPost(appConfig.getTokenUrl());
@@ -39,7 +37,7 @@ public class SalesforceAuthService {
         params.add(new BasicNameValuePair(GRANT_TYPE, GRANT_TYPE_VALUE));
         params.add(new BasicNameValuePair(CLIENT_ID, appConfig.getClientId()));
         params.add(new BasicNameValuePair(CLIENT_SECRET, appConfig.getClientSecret()));
-        params.add(new BasicNameValuePair(USERNAME, USER));
+        params.add(new BasicNameValuePair(USERNAME, appConfig.getUser()));
         params.add(new BasicNameValuePair(PASSWORD, appConfig.getPassword() + appConfig.getSecurityToken()));
 
         post.setEntity(new UrlEncodedFormEntity(params));
