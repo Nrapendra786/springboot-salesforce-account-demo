@@ -41,22 +41,6 @@ jobs:
       - name: Build the project
         run: mvn clean install -f ./sf-account-application/pom.xml
 
-      - name: Set environment variables
-        env:
-          USER: ${{ secrets.USER }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-          CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          SECURITY_TOKEN: ${{ secrets.SECURITY_TOKEN }}
-          TOKEN_URL: ${{ secrets.TOKEN_URL }}
-        run: |
-          echo "USER=${USER}"
-          echo "PASSWORD=${PASSWORD}"
-          echo "TOKEN_URL=${TOKEN_URL}"
-          echo "CLIENT_ID=${CLIENT_ID}"
-          echo "CLIENT_SECRET=${CLIENT_SECRET}"
-          echo "SECURITY_TOKEN=${SECURITY_TOKEN}"
-
       - name: Build and Test ${{ matrix.service }}
         env:
           USER: ${{ secrets.USER }}
