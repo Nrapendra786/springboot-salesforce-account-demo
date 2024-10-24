@@ -1,11 +1,6 @@
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: CI/CD Pipeline
 
 on:
@@ -22,7 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: [commons, sf-account-service, sf-pub-sub-java-client, sf-account-management-service]  # List of microservices
+        service: 
+          - commons
+          - sf-account-service
+          - sf-pub-sub-java-client
+          - sf-account-management-service  # List of microservices
 
     steps:
       - name: Checkout Code
@@ -32,31 +31,27 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'temurin' # Or use 'zulu', 'adopt', etc.
+          distribution: 'temurin'  # Or use 'zulu', 'adopt', etc.
           java-package: jdk
           check-latest: false
-          server-id: github
-          server-username: GITHUB_ACTOR
-          server-password: ${{ secrets.GITHUB_TOKEN }}
-          overwrite-settings: true
 
       - name: List directory contents
-        run: ls -la /home/runner/work/springboot-salesforce-account-demo/springboot-salesforce-account-demo/sf-account-application/
-        
+        run: ls -la ./sf-account-application
+
       - name: Build the project
-        run: mvn clean install -f ./sf-account-application/pom.xml 
-        
+        run: mvn clean install -f ./sf-account-application/pom.xml
 
       - name: Build and Test ${{ matrix.service }}
         env:
-           USER: ${{secrets.USER}}
-           PASSWORD: ${{secrets.PASSWORD}}
-           CLIENT_ID: ${{secrets.CLIENT_ID}}
-           CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
-           SECURITY_TOKEN: ${{secrets.SECURITY_TOKEN}}
-           TOKEN_URL: ${{secrets.TOKEN_URL}}
+          USER: ${{ secrets.USER }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          SECURITY_TOKEN: ${{ secrets.SECURITY_TOKEN }}
+          TOKEN_URL: ${{ secrets.TOKEN_URL }}
         working-directory: ./sf-account-application/${{ matrix.service }}
-        run: mvn clean verify 
+        run: mvn clean verify
+
         
 
 
