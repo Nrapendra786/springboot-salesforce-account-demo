@@ -29,7 +29,7 @@ public class SalesforceAuthService {
     private final AppConfig appConfig;
 
     public SalesforceObject getSalesforceObject() throws IOException {
-        log.debug("USER {} ", appConfig.getUser());
+        log.debug("USER and TOKEN_URL are {} {} ", appConfig.getUser(),appConfig.getTokenUrl());
 
         HttpClient client = HttpClientBuilder.create().build();
         HttpPost post = new HttpPost(appConfig.getTokenUrl());
