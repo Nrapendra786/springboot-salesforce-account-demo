@@ -6,7 +6,6 @@ target/
 
 # some unimporant files
 ../.env
-*-test.properties
 *.sh
 
 
