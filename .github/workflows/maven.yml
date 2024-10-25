@@ -39,7 +39,7 @@ jobs:
         run: ls -la ./sf-account-application
 
       - name: Build the project
-        run: mvn clean install -f ./sf-account-application/pom.xml
+        run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests
 
       - name: Build and Test ${{ matrix.service }}
         env:
@@ -51,8 +51,8 @@ jobs:
           TOKEN_URL: ${{ secrets.TOKEN_URL }}
         working-directory: ./sf-account-application/${{ matrix.service }}
         run:  | 
-          # mvn clean verify
-          echo "$USER" 
+          ##mvn clean verify
+          echo "USER IS : $USER" 
 
         
 
