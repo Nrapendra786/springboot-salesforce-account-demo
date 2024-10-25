@@ -1,2 +1,2 @@
- org.springframework.context.ApplicationListener=\
- com.nrapendra.EnvironmentVariableListener
+# org.springframework.context.ApplicationListener=\
+# com.nrapendra.EnvironmentVariableListener

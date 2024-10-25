@@ -20,8 +20,8 @@ jobs:
         service: 
           - commons
           - sf-account-service
-          - sf-pub-sub-java-client
-          - sf-account-management-service  # List of microservices
+         # - sf-pub-sub-java-client
+         # - sf-account-management-service  # List of microservices
 
     steps:
       - name: Checkout Code
@@ -34,6 +34,14 @@ jobs:
           distribution: 'temurin'  # Or use 'zulu', 'adopt', etc.
           java-package: jdk
           check-latest: false
+
+#      - name: Cache Maven dependencies
+#        uses: actions/cache@v3
+#        with:
+#          path: ~/.m2/repository
+#          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+#          restore-keys: |
+#            ${{ runner.os }}-maven-
 
       - name: List directory contents
         run: ls -la ./sf-account-application
