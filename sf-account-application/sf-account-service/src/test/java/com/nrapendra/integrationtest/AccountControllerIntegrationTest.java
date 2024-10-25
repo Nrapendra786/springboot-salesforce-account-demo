@@ -78,6 +78,7 @@ public class AccountControllerIntegrationTest {
         ResponseEntity<String> postResponse = restTemplate.withBasicAuth(TestUtil.USERNAME, TestUtil.PASSWORD)
                 .postForEntity(builder.toUriString(), account(), String.class);
 
+        log.info("CREATE ACCOUNT URL IS : {}",builder.toUriString());
         Map<?,?> map = mapResponseToMap(postResponse.getBody());
 
         ACCOUNT_ID = (String) map.get("id");
