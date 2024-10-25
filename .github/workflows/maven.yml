@@ -39,7 +39,14 @@ jobs:
         run: ls -la ./sf-account-application
 
       - name: Build the project
-        run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests
+        env:
+          USER: ${{ secrets.USER }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          SECURITY_TOKEN: ${{ secrets.SECURITY_TOKEN }}
+          TOKEN_URL: ${{ secrets.TOKEN_URL }}
+        run: mvn clean install -f ./sf-account-application/pom.xml 
 
       - name: Build and Test ${{ matrix.service }}
         env:
