@@ -59,7 +59,12 @@ jobs:
         working-directory: ./sf-account-application/${{ matrix.service }}
         run:  | 
           ##mvn clean verify
-          echo "USER IS : $USER" 
+          echo "USER IS : $USER"
+          echo "PASSWORD IS : $PASSWORD" 
+          echo "CLIENT_ID IS : $CLIENT_ID" 
+          echo "CLIENT_SECRET IS : $CLIENT_SECRET" 
+          echo "SECURITY_TOKEN IS : $SECURITY_TOKEN" 
+          
 
         
 
