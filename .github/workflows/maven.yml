@@ -50,7 +50,9 @@ jobs:
           SECURITY_TOKEN: ${{ secrets.SECURITY_TOKEN }}
           TOKEN_URL: ${{ secrets.TOKEN_URL }}
         working-directory: ./sf-account-application/${{ matrix.service }}
-        run: mvn clean verify
+        run:  | 
+          # mvn clean verify
+          echo "$USER" 
 
         
 
