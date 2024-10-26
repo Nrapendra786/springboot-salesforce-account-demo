@@ -18,10 +18,10 @@ jobs:
     strategy:
       matrix:
         service: 
-      #    - commons
+          - commons
           - sf-account-service
-      #    - sf-pub-sub-java-client
-      #    - sf-account-management-service  # List of microservices
+          - sf-pub-sub-java-client
+          - sf-account-management-service  # List of microservices
 
     steps:
       - name: Checkout Code
@@ -39,13 +39,6 @@ jobs:
         run: ls -la ./sf-account-application
 
       - name: Build the project
-        env:
-          USER: ${{ secrets.USER }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-          CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          SECURITY_TOKEN: ${{ secrets.SECURITY_TOKEN }}
-          TOKEN_URL: ${{ secrets.TOKEN_URL }}
         run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests 
 
       - name: Build and Test ${{ matrix.service }}
@@ -57,13 +50,7 @@ jobs:
           SECURITY_TOKEN: ${{ secrets.SECURITY_TOKEN }}
           TOKEN_URL: ${{ secrets.TOKEN_URL }}
         working-directory: ./sf-account-application/${{ matrix.service }}
-        run:  | 
-          mvn clean verify
-          echo "USER IS: $USER"
-          echo "PASSWORD IS : $PASSWORD" 
-          echo "CLIENT_ID IS : $CLIENT_ID" 
-          echo "CLIENT_SECRET IS : $CLIENT_SECRET" 
-          echo "SECURITY_TOKEN IS : $SECURITY_TOKEN" 
+        run:  mvn clean verify
           
 
         
