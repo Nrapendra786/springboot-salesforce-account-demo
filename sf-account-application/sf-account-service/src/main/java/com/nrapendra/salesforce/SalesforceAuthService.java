@@ -30,12 +30,7 @@ public class SalesforceAuthService {
 
     public SalesforceObject getSalesforceObject() throws IOException {
         log.info("USER and TOKEN_URL are {} {} ", appConfig.getUser(),appConfig.getTokenUrl());
-        log.info("is TRUE : {}",appConfig.getUser().equals("trivajay259@gmail.com"));
-        log.info("is TRUE : {}",appConfig.getPassword().equals("Narendra786n"));
-        log.info("is TRUE : {}",appConfig.getClientId().equals("3MVG9YFqzc_KnL.zJzsr.Smd3mUFyV.z2M8bTDbQSv6IKfXjjEqalQ15tjxvXgiXusGMBJybc2yFEZH5FUBCO"));
-        log.info("is TRUE : {}",appConfig.getClientSecret().equals("5F31C122D3751268C2A7B17E7E4720B9B4A3E6683A1E3B7F35CD049BA2860D94"));
-        log.info("is TRUE : {}",appConfig.getSecurityToken().equals("ZH7SOg1UFgmtcqgPRIBruPX5V"));
-        log.info("is TRUE : {}",appConfig.getTokenUrl().equals("https://login.salesforce.com/services/oauth2/token"));
+    
         HttpClient client = HttpClientBuilder.create().build();
         HttpPost post = new HttpPost(appConfig.getTokenUrl());
         List<NameValuePair> params = new ArrayList<>();
