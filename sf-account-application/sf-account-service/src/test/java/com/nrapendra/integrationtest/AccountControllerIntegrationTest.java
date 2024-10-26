@@ -79,6 +79,7 @@ public class AccountControllerIntegrationTest {
                 .postForEntity(builder.toUriString(), account(), String.class);
 
         log.info("CREATE ACCOUNT URL IS : {}",builder.toUriString());
+        log.info("USERNAME and PASSWORD are : {} {}",TestUtil.USERNAME, TestUtil.PASSWORD);
         Map<?,?> map = mapResponseToMap(postResponse.getBody());
         log.info("POST RESPONSE BODY IS : {}",postResponse.getBody());
 
