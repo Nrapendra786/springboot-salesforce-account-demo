@@ -46,7 +46,7 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           SECURITY_TOKEN: ${{ secrets.SECURITY_TOKEN }}
           TOKEN_URL: ${{ secrets.TOKEN_URL }}
-   #     run: mvn clean install -f ./sf-account-application/pom.xml 
+        run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests 
 
       - name: Build and Test ${{ matrix.service }}
         env:
