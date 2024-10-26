@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 //Please Note: This test will work only if user provide all necessary credentials required in application-test.yml
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = AccountServiceApplication.class,
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+        webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestPropertySource("classpath:application-test.properties")
 @AutoConfigureMockMvc
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -80,6 +80,7 @@ public class AccountControllerIntegrationTest {
 
         log.info("CREATE ACCOUNT URL IS : {}",builder.toUriString());
         Map<?,?> map = mapResponseToMap(postResponse.getBody());
+        log.info("POST RESPONSE BODY IS : {}",postResponse.getBody());
 
         ACCOUNT_ID = (String) map.get("id");
         log.info("ACCOUNT_ID is : {}", ACCOUNT_ID);
