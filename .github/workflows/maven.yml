@@ -20,8 +20,8 @@ jobs:
         service: 
           - commons
           - sf-account-service
-          - sf-pub-sub-java-client
-          - sf-account-management-service  # List of microservices
+      #    - sf-pub-sub-java-client
+      #    - sf-account-management-service  # List of microservices
 
     steps:
       - name: Checkout Code
