@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "salesforce")
 @Data
-public class AppConfig {
+public class SalesforceConfig {
     private String user;
     private String password;
     private String clientId;

@@ -1,5 +1,6 @@
 package com.nrapendra.account.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -18,6 +19,12 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    @Value("${db-user}")
+    private String dbUser;
+
+    @Value("${db-password}")
+    private String dbPassword;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -41,8 +48,8 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        var user = User.withUsername(USERNAME_VALUE)
-                .password("{noop}" + PASSWORD_VALUE) // NoOpPasswordEncoder for demo purposes
+        var user = User.withUsername(dbUser)
+                .password("{noop}" + dbPassword) // NoOpPasswordEncoder for demo purposes
                 .roles(ROLE)
                 .build();
         return new InMemoryUserDetailsManager(user);

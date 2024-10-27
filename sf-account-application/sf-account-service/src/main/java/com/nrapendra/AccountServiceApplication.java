@@ -1,6 +1,6 @@
 package com.nrapendra;
 
-import com.nrapendra.account.config.AppConfig;
+import com.nrapendra.account.config.SalesforceConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +10,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EnableConfigurationProperties(AppConfig.class)
+@EnableConfigurationProperties(SalesforceConfig.class)
 @EnableTransactionManagement
 @Slf4j
 public class AccountServiceApplication {

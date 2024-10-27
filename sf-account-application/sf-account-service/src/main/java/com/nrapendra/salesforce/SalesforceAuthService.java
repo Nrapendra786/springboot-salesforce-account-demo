@@ -2,7 +2,7 @@ package com.nrapendra.salesforce;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nrapendra.account.config.AppConfig;
+import com.nrapendra.account.config.SalesforceConfig;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpResponse;
@@ -26,19 +26,19 @@ import static com.nrapendra.account.utils.AppUtil.*;
 @Slf4j
 public class SalesforceAuthService {
 
-    private final AppConfig appConfig;
+    private final SalesforceConfig salesforceConfig;
 
     public SalesforceObject getSalesforceObject() throws IOException {
-        log.info("USER and TOKEN_URL are {} {} ", appConfig.getUser(),appConfig.getTokenUrl());
+        log.info("USER and TOKEN_URL are {} {} ", salesforceConfig.getUser(), salesforceConfig.getTokenUrl());
     
         HttpClient client = HttpClientBuilder.create().build();
-        HttpPost post = new HttpPost(appConfig.getTokenUrl());
+        HttpPost post = new HttpPost(salesforceConfig.getTokenUrl());
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(GRANT_TYPE, GRANT_TYPE_VALUE));
-        params.add(new BasicNameValuePair(CLIENT_ID, appConfig.getClientId()));
-        params.add(new BasicNameValuePair(CLIENT_SECRET, appConfig.getClientSecret()));
-        params.add(new BasicNameValuePair(USERNAME, appConfig.getUser()));
-        params.add(new BasicNameValuePair(PASSWORD, appConfig.getPassword() + appConfig.getSecurityToken()));
+        params.add(new BasicNameValuePair(CLIENT_ID, salesforceConfig.getClientId()));
+        params.add(new BasicNameValuePair(CLIENT_SECRET, salesforceConfig.getClientSecret()));
+        params.add(new BasicNameValuePair(USERNAME, salesforceConfig.getUser()));
+        params.add(new BasicNameValuePair(PASSWORD, salesforceConfig.getPassword() + salesforceConfig.getSecurityToken()));
 
         post.setEntity(new UrlEncodedFormEntity(params));
         HttpResponse response = client.execute(post);

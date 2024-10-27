@@ -1,13 +1,13 @@
 package com.nrapendra.helpers;
 
 
-import com.nrapendra.account.config.AppConfig;
+import com.nrapendra.account.config.SalesforceConfig;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableConfigurationProperties({
-        AppConfig.class
+        SalesforceConfig.class
 })
 public class TestConfig {
 }
