@@ -127,6 +127,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                  <groupId>org.sonarsource.scanner.maven</groupId>
+                  <artifactId>sonar-maven-plugin</artifactId>
+                  <version>4.0.0.4121</version> <!-- Explicit version specified here -->
+            </plugin>    
             <!-- Plugin to create executable JAR with Main-Class attribute -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
