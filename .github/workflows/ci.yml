@@ -45,11 +45,18 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+ 
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
         
       - name: Build the project
         run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests 
 
-      - name: Build and Test ${{ matrix.service }}
+      - name: Build, Analyze and Test ${{ matrix.service }}
         env:
           USER: ${{ secrets.USER }}
           PASSWORD: ${{ secrets.PASSWORD }}
@@ -57,8 +64,10 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           SECURITY_TOKEN: ${{ secrets.SECURITY_TOKEN }}
           TOKEN_URL: ${{ secrets.TOKEN_URL }}
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         working-directory: ./sf-account-application/${{ matrix.service }}
-        run:  mvn clean verify
+        run:  mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=nrapendra786_springboot-salesforce-account-demo
           
 
         
