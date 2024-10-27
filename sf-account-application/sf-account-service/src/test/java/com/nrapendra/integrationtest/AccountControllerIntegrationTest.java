@@ -8,7 +8,10 @@ import com.nrapendra.account.services.AccountLocalDBService;
 import com.nrapendra.account.services.AccountSalesforceService;
 import com.nrapendra.helpers.TestUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -19,7 +22,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -42,7 +44,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Slf4j
 public class AccountControllerIntegrationTest {
 
-    private static String NAME="name";
+    private static String NAME = "name";
     private static String ACCOUNT_ID = "";
 
     @LocalServerPort
@@ -65,7 +67,7 @@ public class AccountControllerIntegrationTest {
     @Order(1)
     public void testCreateAccount() throws Exception {
         String url = getRootUrl() + "create/";
-        int randomNumber = new Random(1).nextInt( 100);
+        int randomNumber = new Random(1).nextInt(100);
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
                 .queryParam("name", "test_name" + randomNumber)
@@ -77,15 +79,8 @@ public class AccountControllerIntegrationTest {
 
         ResponseEntity<String> postResponse = restTemplate.withBasicAuth(TestUtil.USERNAME, TestUtil.PASSWORD)
                 .postForEntity(builder.toUriString(), account(), String.class);
-
-        log.info("CREATE ACCOUNT URL IS : {}",builder.toUriString());
-        log.info("USERNAME and PASSWORD are : {} {}",TestUtil.USERNAME, TestUtil.PASSWORD);
-        Map<?,?> map = mapResponseToMap(postResponse.getBody());
-        log.info("POST RESPONSE BODY IS : {}",postResponse.getBody());
-
+        Map<?, ?> map = mapResponseToMap(postResponse.getBody());
         ACCOUNT_ID = (String) map.get("id");
-        log.info("ACCOUNT_ID is : {}", ACCOUNT_ID);
-
         assertEquals(postResponse.getStatusCode(), HttpStatus.CREATED);
     }
 
@@ -93,15 +88,14 @@ public class AccountControllerIntegrationTest {
     @Order(2)
     public void testFindAccountById() throws JsonProcessingException {
         String url = getRootUrl() + ACCOUNT_ID;
-        log.info("testFindAccountById is Invoked and url is : {}",url);
-
+        log.info("testFindAccountById is Invoked and url is : {}", url);
         ResponseEntity<String> getResponse =
                 restTemplate
                         .withBasicAuth(TestUtil.USERNAME, TestUtil.PASSWORD)
                         .getForEntity(URI.create(url), String.class);
 
-        Map<?,?> map = mapResponseToMap(getResponse.getBody());
-        NAME=(String) map.get(NAME);
+        Map<?, ?> map = mapResponseToMap(getResponse.getBody());
+        NAME = (String) map.get(NAME);
         assertEquals(getResponse.getStatusCode(), HttpStatus.OK);
     }
 
@@ -112,7 +106,7 @@ public class AccountControllerIntegrationTest {
         ResponseEntity<String> getResponse =
                 restTemplate
                         .withBasicAuth(TestUtil.USERNAME, TestUtil.PASSWORD)
-                        .getForEntity(URI.create(getRootUrl() +"parameter/" + NAME), String.class);
+                        .getForEntity(URI.create(getRootUrl() + "parameter/" + NAME), String.class);
         assertEquals(getResponse.getStatusCode(), HttpStatus.OK);
     }
 
@@ -137,7 +131,7 @@ public class AccountControllerIntegrationTest {
 
         assertEquals(putResponse.getStatusCode(), HttpStatus.OK);
 
-        LinkedHashMap<String,String> messageJson = (LinkedHashMap<String,String>)mapResponseToMap(putResponse.getBody()).get(MESSAGE);
+        LinkedHashMap<String, String> messageJson = (LinkedHashMap<String, String>) mapResponseToMap(putResponse.getBody()).get(MESSAGE);
 
         var expectedValue = messageJson.get("name");
         assertEquals(expectedValue, newName);
