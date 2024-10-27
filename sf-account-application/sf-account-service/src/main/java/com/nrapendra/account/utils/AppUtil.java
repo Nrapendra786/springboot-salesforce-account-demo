@@ -31,8 +31,6 @@ public class AppUtil {
     public static final String SWAGGER_UI = "swagger-ui";
 
     //credentials
-    public static final String USERNAME_VALUE = "test";
-    public static final String PASSWORD_VALUE = "test";
     public static final String ROLE = "test";
 
     //Response Code
