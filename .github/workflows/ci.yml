@@ -54,7 +54,7 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar
         
       - name: Build the project
-        run: mvn clean install -f ./sf-account-application/commons/pom.xml -DskipTests 
+        run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests
 
       - name: Build, Analyze and Test ${{ matrix.service }}
         env:
