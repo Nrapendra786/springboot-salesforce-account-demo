@@ -64,7 +64,7 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           SECURITY_TOKEN: ${{ secrets.SECURITY_TOKEN }}
           TOKEN_URL: ${{ secrets.TOKEN_URL }}
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         working-directory: ./sf-account-application/${{ matrix.service }}
         run:  mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=nrapendra786_springboot-salesforce-account-demo
