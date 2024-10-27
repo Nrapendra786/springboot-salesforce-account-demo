@@ -39,7 +39,7 @@ public class SalesforceConnector {
     }
 
     public HttpRequestBase findAccountById(SalesforceObject salesforceObject, String accountId){
-
+        validateAccountId(accountId);
         var accessToken = salesforceObject.getAccessToken();
         var salesforceInstanceUrl = salesforceObject.getInstanceUrl();
 
@@ -65,6 +65,7 @@ public class SalesforceConnector {
     }
 
     public HttpRequestBase deleteAccountById(SalesforceObject salesforceObject, String accountId){
+        validateAccountId(accountId);
         var accessToken = salesforceObject.getAccessToken();
         var salesforceInstanceUrl = salesforceObject.getInstanceUrl();
 
@@ -77,6 +78,7 @@ public class SalesforceConnector {
     }
 
     public HttpRequestBase updateAccount(SalesforceObject salesforceObject,String accountId, Account account) throws UnsupportedEncodingException, JsonProcessingException {
+        validateAccountId(accountId);
         var accessToken = salesforceObject.getAccessToken();
         var salesforceInstanceUrl = salesforceObject.getInstanceUrl();
 
@@ -118,6 +120,12 @@ public class SalesforceConnector {
 
     private boolean isNotNullNorEmpty(String value) {
         return Objects.nonNull(value)  &&  !value.isBlank();
+    }
+
+    private void validateAccountId(String accountId) {
+        if (!accountId.matches("^[a-zA-Z0-9]{15}|[a-zA-Z0-9]{18}$")) {
+            throw new IllegalArgumentException("Invalid Salesforce account ID");
+        }
     }
 }
 
