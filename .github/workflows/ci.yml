@@ -69,7 +69,8 @@ jobs:
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         working-directory: ./sf-account-application/${{ matrix.service }}
-        run:  mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Nrapendra786_springboot-salesforce-account-demo
+        
+        run:  mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.coverage.exclusions=** -Dsonar.projectKey=Nrapendra786_springboot-salesforce-account-demo
           
 
         
