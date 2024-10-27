@@ -39,4 +39,14 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
+  <build>
+      <plugins>
+               <plugin>
+                      <groupId>org.sonarsource.scanner.maven</groupId>
+                      <artifactId>sonar-maven-plugin</artifactId>
+                      <version>4.0.0.4121</version> <!-- Explicit version specified here -->
+              </plugin>
+      </plugins>       
+  </build>
+         
 </project>
