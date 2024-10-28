@@ -1,4 +1,4 @@
-package org.salesforce.integration.pubsub.utils;
+package com.nrapendra.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;

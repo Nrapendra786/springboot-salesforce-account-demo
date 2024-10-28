@@ -8,8 +8,8 @@ import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
 
-import static org.salesforce.integration.pubsub.utils.AppUtil.BOOTSTRAP_SERVER_CONFIG;
-import static org.salesforce.integration.pubsub.utils.AppUtil.TOPIC_NAME;
+import static com.nrapendra.utils.AppUtil.BOOTSTRAP_SERVER_CONFIG;
+import static com.nrapendra.utils.AppUtil.TOPIC_NAME;
 
 public class EventProducer {
 

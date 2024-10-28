@@ -7,16 +7,17 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
+import static com.nrapendra.utils.AppUtil.TOPIC_NAME;
+
 @Service
-@Slf4j
 @RequiredArgsConstructor
+@Slf4j
 public class KafkaConsumerService {
 
     private final EventService eventService;
 
-    @KafkaListener(topics = {"my_topic"}, groupId = "group_id")
+    @KafkaListener(topics = {TOPIC_NAME}, groupId = "group_id")
     public void consume(@Payload Message message) {
-        log.info(String.format("Received: " + message));
         eventService.saveEvent(message);
     }
 }

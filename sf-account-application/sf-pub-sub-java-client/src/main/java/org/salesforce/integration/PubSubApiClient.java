@@ -15,7 +15,7 @@ import org.apache.avro.Schema;
 import org.salesforce.integration.pubsub.PubSubEventObserver;
 import org.salesforce.integration.pubsub.auth.AuthenticationHelper;
 import org.salesforce.integration.pubsub.auth.AuthenticationHelper.AuthenticationException;
-import org.salesforce.integration.pubsub.utils.Config;
+import com.nrapendra.utils.Config;
 import org.salesforce.integration.pubsub.auth.SalesforceSession;
 
 import com.salesforce.eventbus.protobuf.PubSubGrpc;
