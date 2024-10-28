@@ -23,8 +23,8 @@ jobs:
     env:
       JAVA_VERSION: '17'
       DISTRIBUTION: 'temurin'
-      MAVEN_CACHE_KEY: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-      SONAR_CACHE_KEY: ${{ runner.os }}-sonar
+      # MAVEN_CACHE_KEY: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+      # SONAR_CACHE_KEY: ${{ runner.os }}-sonar
       USER: ${{ secrets.USER }}
       PASSWORD: ${{ secrets.PASSWORD }}
       CLIENT_ID: ${{ secrets.CLIENT_ID }}
