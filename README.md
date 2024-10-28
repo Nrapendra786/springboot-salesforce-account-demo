@@ -1,4 +1,5 @@
 PROJECT_STATUS: IN PROGRESS
+Devops Idea : https://medium.com/@youssefelgamrani/monitoring-java-spring-microservices-with-prometheus-and-grafana-using-helm-in-a-kubernetes-aca5c8385c73
 # Demo Project developed using Salesforce, Java, SpringBoot and Apache Kafka
 
 Prerequisites: Java 17 and Docker must be installed in the system.
