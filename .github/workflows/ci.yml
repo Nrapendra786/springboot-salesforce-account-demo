@@ -31,6 +31,7 @@ jobs:
       TOKEN_URL: ${{ secrets.TOKEN_URL }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_PROJECTKEY: ${{ secrets.SONAR_PROJECTKEY }}
       DB_USER: ${{ secrets.DB_USER }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
@@ -59,7 +60,7 @@ jobs:
 
       - name: Build, Analyze and Test ${{ matrix.service }}
         working-directory: ./sf-account-application/${{ matrix.service }}
-        run: mvn clean -B verify sonar:sonar -Dsonar.coverage.exclusions=**/* -Dsonar.projectKey = ${{ secrets.SONAR_PROJECTKEY }}
+        run: mvn clean -B verify sonar:sonar -Dsonar.coverage.exclusions=**/* -Dsonar.projectKey=$SONAR_PROJECTKEY
 
       
 
