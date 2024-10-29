@@ -59,7 +59,7 @@ jobs:
 
       - name: Build, Analyze and Test ${{ matrix.service }}
         working-directory: ./sf-account-application/${{ matrix.service }}
-        run: mvn clean -B verify sonar:sonar -Dsonar.coverage.exclusions=** -Dsonar.projectKey=Nrapendra786_springboot-salesforce-account-demo
+        run: mvn clean -B verify sonar:sonar -Dsonar.coverage.exclusions=**/* -Dsonar.projectKey = ${{ secrets.SONAR_PROJECTKEY }}
 
       
 
