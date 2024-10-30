@@ -23,8 +23,6 @@ jobs:
     env:
       JAVA_VERSION: '17'
       DISTRIBUTION: 'temurin'
-      MAVEN_CACHE_KEY: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-      SONAR_CACHE_KEY: ${{ runner.os }}-sonar
       USER: ${{ secrets.USER }}
       PASSWORD: ${{ secrets.PASSWORD }}
       CLIENT_ID: ${{ secrets.CLIENT_ID }}
@@ -33,6 +31,7 @@ jobs:
       TOKEN_URL: ${{ secrets.TOKEN_URL }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_PROJECTKEY: ${{ secrets.SONAR_PROJECTKEY }}
       DB_USER: ${{ secrets.DB_USER }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
@@ -59,14 +58,18 @@ jobs:
       - name: Build and Test Project
         run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests
 
+      - name: Setup Testcontainers Cloud Client
+        uses: atomicjar/testcontainers-cloud-setup-action@v1
+        with:
+             token: ${{ secrets.TC_CLOUD_TOKEN }}
+      
       - name: Build, Analyze and Test ${{ matrix.service }}
         working-directory: ./sf-account-application/${{ matrix.service }}
-        run: mvn clean -B verify sonar:sonar -Dsonar.coverage.exclusions=** -Dsonar.projectKey=Nrapendra786_springboot-salesforce-account-demo
+        run: mvn clean -B verify sonar:sonar -Dsonar.coverage.exclusions=**/* -Dsonar.projectKey=$SONAR_PROJECTKEY
 
+      
 
-
-
-
+      
 
         
 

@@ -1,4 +1,4 @@
-PROJECT_STATUS: IN PROGRESS
+PROJECT_STATUS: IN PROGRESS <br/>
 # Demo Project developed using Salesforce, Java, SpringBoot and Apache Kafka
 
 Prerequisites: Java 17 and Docker must be installed in the system.

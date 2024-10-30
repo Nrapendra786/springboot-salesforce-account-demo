@@ -35,7 +35,6 @@ import java.util.Random;
 import static com.nrapendra.account.utils.AppUtil.MESSAGE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//Please Note: This test will work only if user provide all necessary credentials required in application-test.yml
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = AccountServiceApplication.class,
         webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
