@@ -58,10 +58,10 @@ jobs:
       - name: Build and Test Project
         run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests
 
-      - name: Setup Testcontainers Cloud Client
-        uses: atomicjar/testcontainers-cloud-setup-action@v1
-        with:
-             token: ${{ secrets.TC_CLOUD_TOKEN }}
+  #    - name: Setup Testcontainers Cloud Client
+  #      uses: atomicjar/testcontainers-cloud-setup-action@v1
+  #      with:
+  #           token: ${{ secrets.TC_CLOUD_TOKEN }}
       
       - name: Build, Analyze and Test ${{ matrix.service }}
         working-directory: ./sf-account-application/${{ matrix.service }}
