@@ -1,10 +1,13 @@
 package com.nrapendra.utils;
 
+import lombok.Data;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+@Data
 public class Config {
 	private static Config config;
 
@@ -16,34 +19,6 @@ public class Config {
 	private String pubSubEndpoint;
 	private String pubSubTopicName;
 	private int pubSubEventReceiveLimit;
-
-	public String getPubSubEndpoint() {
-		return pubSubEndpoint;
-	}
-
-	public String getPubSubTopicName() {
-		return pubSubTopicName;
-	}
-
-	public int getPubSubEventReceiveLimit() {
-		return pubSubEventReceiveLimit;
-	}
-
-	public String getLoginUrl() {
-		return loginUrl;
-	}
-	
-	public String getUsername() {
-		return username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public String getToken() {
-		return token;
-	}
 
 	public static Config get() {
 		if (config == null) {
