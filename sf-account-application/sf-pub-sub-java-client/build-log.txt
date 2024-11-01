@@ -1,0 +1,8 @@
+failed to fetch metadata: exit status 0xc000013a
+
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+
+got 3 SIGTERM/SIGINTs, forcefully exiting

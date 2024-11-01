@@ -9,7 +9,7 @@ COPY pom.xml ./
 COPY src ./src
 
 # Run the Maven build
-RUN mvn clean install -DskipTests
+RUN mvn clean deploy
 
 # Use a minimal JRE base image for the runtime
 FROM eclipse-temurin:18-jre-alpine
