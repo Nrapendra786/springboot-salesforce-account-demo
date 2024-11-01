@@ -20,7 +20,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = ConsumerApplication.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @ActiveProfiles("test")
-//@ContextConfiguration(initializers = { KafkaConsumerServiceTest.Initializer.class })
 public class KafkaConsumerServiceTest {
 
     @Autowired
