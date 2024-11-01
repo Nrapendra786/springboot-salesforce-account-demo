@@ -59,6 +59,8 @@ jobs:
         run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests
         
       - name: Build, Analyze and Test ${{ matrix.service }}
+        env: 
+            TESTCONTAINERS_HOST_OVERRIDE: "host.docker.internal"   
         working-directory: ./sf-account-application/${{ matrix.service }}
         run: mvn clean -B verify sonar:sonar -Dsonar.coverage.exclusions=**/* -Dsonar.projectKey=$SONAR_PROJECTKEY
 
