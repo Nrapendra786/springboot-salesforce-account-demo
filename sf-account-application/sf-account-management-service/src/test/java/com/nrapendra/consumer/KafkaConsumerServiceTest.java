@@ -2,20 +2,17 @@ package com.nrapendra.consumer;
 
 import com.nrapendra.consumer.events.EventRepository;
 import org.junit.ClassRule;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.util.TestPropertyValues;
-import org.springframework.context.ApplicationContextInitializer;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.testcontainers.containers.KafkaContainer;
-import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.utility.DockerImageName;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -23,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = ConsumerApplication.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @ActiveProfiles("test")
-@ContextConfiguration(initializers = { KafkaConsumerServiceTest.Initializer.class })
+//@ContextConfiguration(initializers = { KafkaConsumerServiceTest.Initializer.class })
 public class KafkaConsumerServiceTest {
 
     @Autowired
@@ -33,16 +30,19 @@ public class KafkaConsumerServiceTest {
     public KafkaTemplate<String, String> kafkaTemplate;
 
     @ClassRule
-    public static KafkaContainer kafkaContainer = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:latest"))
-    .waitingFor(Wait.forListeningPort());
+    public static KafkaContainer kafkaContainer = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:latest"));
 
-    static class Initializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
-        @DynamicPropertySource
-        public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
-            TestPropertyValues.of("spring.kafka.bootstrap-servers=" + kafkaContainer.getBootstrapServers())
-                    .applyTo(configurableApplicationContext.getEnvironment());
-        }
+    @BeforeAll
+    public static void setUp() {
+        // Start the Kafka container before any tests are run
+        kafkaContainer.start();
+    }
+
+    @DynamicPropertySource
+    static void configureKafka(DynamicPropertyRegistry registry) {
+        // Add the Kafka bootstrap servers property only after the container has started
+        registry.add("spring.kafka.bootstrap-servers", kafkaContainer::getBootstrapServers);
     }
 
     @Test
