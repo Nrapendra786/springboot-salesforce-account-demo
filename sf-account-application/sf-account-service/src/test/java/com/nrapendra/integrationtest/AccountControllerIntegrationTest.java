@@ -82,6 +82,7 @@ public class AccountControllerIntegrationTest {
                 .postForEntity(builder.toUriString(), account(), String.class);
         Map<?, ?> map = mapResponseToMap(postResponse.getBody());
         ACCOUNT_ID = (String) map.get("id");
+        log.info("ACCOUNT_ID is : {}",ACCOUNT_ID);
         assertEquals(postResponse.getStatusCode(), HttpStatus.CREATED);
     }
 
