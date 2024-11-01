@@ -15,6 +15,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.utility.DockerImageName;
 
+import static com.nrapendra.utils.AppUtil.TOPIC_NAME;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SpringExtension.class)
@@ -45,8 +46,8 @@ public class KafkaConsumerServiceTest {
     }
 
     @Test
-    public void messageAreReceived() throws Exception {
-        kafkaTemplate.send("my_topic", messages());
+    public void messageAreReceived() {
+        kafkaTemplate.send(TOPIC_NAME, messages());
         assertTrue(eventRepository.count() > 0);
     }
 
