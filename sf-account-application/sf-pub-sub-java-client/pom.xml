@@ -17,6 +17,9 @@
         <protobuf.version>3.21.4</protobuf.version>
         <protoc.version>3.21.4</protoc.version>
         <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
+        <sonar.organization>nrapendra786</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.projectKey>Nrapendra786_springboot-salesforce-account-demo</sonar.projectKey>
     </properties>
 
     <build>
