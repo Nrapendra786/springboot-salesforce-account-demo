@@ -21,7 +21,6 @@
         <springdoc-openapi-starter-webmvc-ui.version>2.6.0</springdoc-openapi-starter-webmvc-ui.version>
         <sonar.organization>nrapendra786</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.projectKey>Nrapendra786_springboot-salesforce-account-demo</sonar.projectKey>
     </properties>
 
     <dependencies>
@@ -123,20 +122,19 @@
             <artifactId>h2</artifactId>
             <version>${h2.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.nrapendra</groupId>
-            <artifactId>commons</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>kafka</artifactId>
             <version>1.20.3</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.nrapendra</groupId>
+            <artifactId>commons</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/src/libs/commons-0.0.1-SNAPSHOT.jar</systemPath>
+        </dependency>
     </dependencies>
 
 
@@ -159,7 +157,6 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <addClasspath>true</addClasspath>
                             <mainClass>com.nrapendra.consumer.ConsumerApplication
                             </mainClass> <!-- Change to your main class -->
                         </manifest>

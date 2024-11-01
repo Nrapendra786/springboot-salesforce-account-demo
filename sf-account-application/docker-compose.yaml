@@ -1,8 +1,62 @@
 networks:
-  container:
+  springboot-network:
     driver: bridge  # Default driver; optional since 'bridge' is the default
 
 services:
+  commons:
+    build:
+      context: ./commons # Directory containing Dockerfile for commons service
+      dockerfile: Dockerfile
+    container_name: commons
+    image: commons-service:latest
+    networks:
+      - springboot-network
+    ports:
+      - "8080:8080"
+  sf-account-service:
+    build:
+      context: ./sf-account-service # Directory containing Dockerfile for sf-account-service
+      dockerfile: Dockerfile
+    container_name: sf-account-service
+    image: sf-account-service:latest
+    environment:
+      - USER=${USER}
+      - PASSWORD=${PASSWORD}
+      - CLIENT_ID=${CLIENT_ID}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+      - SECURITY_TOKEN=${SECURITY_TOKEN}
+      - TOKEN_URL=${TOKEN_URL}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    networks:
+      - springboot-network
+    ports:
+      - "8081:8081"
+  sf-account-management-service:
+    build:
+      context: ./sf-account-management-service # Directory containing Dockerfile for commons service
+      dockerfile: Dockerfile
+    container_name: account-management-service
+    image: commons-service:latest
+    networks:
+      - springboot-network
+    ports:
+      - "8082:8082"
+    depends_on:
+      - kafka
+      - sf-pub-sub-java-client
+  sf-pub-sub-java-client:
+    build:
+      context: ./sf-pub-sub-java-client # Directory containing Dockerfile for commons service
+      dockerfile: Dockerfile
+    container_name: pub-sub-java-client
+    image: sf-pub-sub-java-client:latest
+    networks:
+      - springboot-network
+    ports:
+      - "8083:8083"
+    depends_on:
+      - kafka
   zookeeper:
     image: docker.io/bitnami/zookeeper:latest
     ports:
@@ -11,9 +65,9 @@ services:
       - ALLOW_ANONYMOUS_LOGIN=yes
       - ZOO_AUTOPURGE_INTERVAL=1
     networks:
-      - container
+      - springboot-network
     logging:
-      driver: none
+      driver: "json-file"
   kafka:
     image: docker.io/bitnami/kafka:latest
     ports:
@@ -31,14 +85,14 @@ services:
       zookeeper:
         condition: service_started
     networks:
-      - container
+      - springboot-network
     logging:
       driver: none
   # create kafka raw topic
   kafka-init:
     image: docker.io/bitnami/kafka:latest
     networks:
-      - container
+      - springboot-network
     command: [ "/bin/bash", "-c", "/create_topic.sh" ]
     environment:
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
