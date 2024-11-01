@@ -60,7 +60,7 @@ jobs:
         
       - name: Build, Analyze and Test ${{ matrix.service }}
         env: 
-            TESTCONTAINERS_HOST_OVERRIDE: "host.docker.internal"   
+            TESTCONTAINERS_HOST_OVERRIDE: localhost
         working-directory: ./sf-account-application/${{ matrix.service }}
         run: mvn clean -B verify sonar:sonar -Dsonar.coverage.exclusions=**/* -Dsonar.projectKey=$SONAR_PROJECTKEY
 
