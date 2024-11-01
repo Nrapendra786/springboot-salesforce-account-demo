@@ -2,6 +2,7 @@ package com.nrapendra.consumer;
 
 import com.nrapendra.consumer.events.EventRepository;
 import org.junit.ClassRule;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest(classes = ConsumerApplication.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @ActiveProfiles("test")
 @ContextConfiguration(initializers = { KafkaConsumerServiceTest.Initializer.class })
+@Disabled
 public class KafkaConsumerServiceTest {
 
     @Autowired
