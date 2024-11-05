@@ -57,6 +57,14 @@ jobs:
 
       - name: Build and Test Project
         run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests
+      
+      - name: Snyk Security Scan
+        uses: snyk/actions@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: test --all-projects
+
         
       - name: Build, Analyze and Test ${{ matrix.service }}
         env: 
