@@ -57,7 +57,23 @@ jobs:
 
       - name: Build and Test Project
         run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests
-        
+
+        # Install Snyk
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+
+      # Authenticate Snyk
+      - name: Authenticate Snyk
+        run: snyk auth ${{ secrets.SNYK_TOKEN }}
+
+      # Run Snyk test for vulnerabilities
+      - name: Run Snyk Test
+        run: snyk test
+
+      # Run Snyk monitor for continuous monitoring (optional)
+      - name: Monitor with Snyk
+        run: snyk monitor
+
       - name: Build, Analyze and Test ${{ matrix.service }}
         env: 
             TESTCONTAINERS_HOST_OVERRIDE: localhost

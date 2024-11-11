@@ -13,9 +13,9 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <grpc.version>1.48.0</grpc.version>
-        <protobuf.version>3.21.4</protobuf.version>
-        <protoc.version>3.21.4</protoc.version>
+        <grpc.version>1.63.0</grpc.version>
+        <protobuf.version>3.25.5</protobuf.version>
+        <protoc.version>3.25.5</protoc.version>
         <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
         <sonar.organization>nrapendra786</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -121,7 +121,7 @@
         <dependency>
             <groupId>org.apache.avro</groupId>
             <artifactId>avro</artifactId>
-            <version>1.11.4</version>
+            <version>1.12.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
