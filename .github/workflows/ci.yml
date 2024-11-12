@@ -68,11 +68,11 @@ jobs:
 
       # Run Snyk test for vulnerabilities
       - name: Run Snyk Test
-        run: snyk test
+        run: ./sf-account-application && snyk test
 
       # Run Snyk monitor for continuous monitoring (optional)
-      - name: Monitor with Snyk
-        run: snyk monitor
+      #- name: Monitor with Snyk
+      # run:  snyk monitor
 
       - name: Build, Analyze and Test ${{ matrix.service }}
         env: 
