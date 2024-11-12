@@ -71,8 +71,8 @@ jobs:
         run: cd sf-account-application && snyk test
 
       # Run Snyk monitor for continuous monitoring (optional)
-      #- name: Monitor with Snyk
-      # run:  snyk monitor
+      - name: Monitor with Snyk
+        run:  cd sf-account-application && snyk monitor
 
       - name: Build, Analyze and Test ${{ matrix.service }}
         env: 
