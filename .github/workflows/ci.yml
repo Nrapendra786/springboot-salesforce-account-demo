@@ -68,7 +68,7 @@ jobs:
 
       # Run Snyk test for vulnerabilities
       - name: Run Snyk Test
-        run: ./sf-account-application && snyk test
+        run: cd sf-account-application && snyk test
 
       # Run Snyk monitor for continuous monitoring (optional)
       #- name: Monitor with Snyk
