@@ -1,5 +1,6 @@
 
-[![Known Vulnerabilities](https://app.snyk.io/org/t-softwares/project/8d6afc6f-98a9-4f21-a86d-d3407d6dfb14/badge.svg)](https://snyk.io/test/github/Nrapendra786/springboot-salesforce-account-demo)
+[![Known Vulnerabilities](https://snyk.io/test/github/Nrapendra786/springboot-salesforce-account-demo/badge.svg)](https://snyk.io/test/github/Nrapendra786/springboot-salesforce-account-demo)
+
 
 
 # Demo Project developed using Java, SpringBoot, Apache Kafka and Salesforce Cloud
