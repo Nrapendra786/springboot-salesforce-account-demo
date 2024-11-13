@@ -1,5 +1,5 @@
 
-[![Known Vulnerabilities](https://snyk.io/test/github/Nrapendra786/springboot-salesforce-account-demo/badge.svg)](https://snyk.io/test/github/Nrapendra786/springboot-salesforce-account-demo)
+[![Known Vulnerabilities]([https://snyk.io/test](https://app.snyk.io/org/t-softwares)/github/Nrapendra786/springboot-salesforce-account-demo/badge.svg)](https://snyk.io/test/github/Nrapendra786/springboot-salesforce-account-demo)
 
 
 
