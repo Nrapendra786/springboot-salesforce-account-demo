@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/sf-account-application/sf-pub-sub-java-client/pom.xml" />
+        <option value="$PROJECT_DIR$/sf-account-application/sf-account-service/pom.xml" />
+        <option value="$PROJECT_DIR$/sf-account-application/pom.xml" />
+        <option value="$PROJECT_DIR$/sf-account-application/commons/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK" />
+</project>

@@ -1,0 +1,484 @@
+Index: logs/salesforce-account-management.log
+===================================================================
+diff --git a/logs/salesforce-account-management.log b/logs/salesforce-account-management.log
+deleted file mode 100644
+--- a/logs/salesforce-account-management.log	
++++ /dev/null	
+@@ -1,327 +0,0 @@
+-2024-10-17T15:37:19.386+02:00 ERROR [salesforce-account-management,,] 9272 --- [salesforce-account-management] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+-
+-java.lang.IllegalStateException: java.lang.IllegalStateException: Logback configuration error detected: 
+-ERROR in ch.qos.logback.core.model.processor.AppenderModelHandler - Could not create an Appender of type [net.logstash.logback.appender.LogstashTcpSocketAppender]. ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender
+-ERROR in ch.qos.logback.core.model.processor.DefaultProcessor@6258f669 - Failed to traverse model appender ch.qos.logback.core.model.processor.ModelHandlerException: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender
+-ERROR in ch.qos.logback.core.model.processor.AppenderModelHandler - Could not create an Appender of type [net.logstash.logback.appender.LogstashTcpSocketAppender]. ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender
+-ERROR in ch.qos.logback.core.model.processor.DefaultProcessor@6258f669 - Failed to traverse model appender ch.qos.logback.core.model.processor.ModelHandlerException: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender
+-	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:347)
+-	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:298)
+-	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:246)
+-	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:223)
+-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185)
+-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178)
+-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156)
+-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:138)
+-	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:136)
+-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:81)
+-	at org.springframework.boot.SpringApplicationRunListeners.lambda$environmentPrepared$2(SpringApplicationRunListeners.java:64)
+-	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+-	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118)
+-	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112)
+-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:63)
+-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:370)
+-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330)
+-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+-	at com.nrapendra.AccountServiceApplication.main(AccountServiceApplication.java:19)
+-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+-Caused by: java.lang.IllegalStateException: Logback configuration error detected: 
+-ERROR in ch.qos.logback.core.model.processor.AppenderModelHandler - Could not create an Appender of type [net.logstash.logback.appender.LogstashTcpSocketAppender]. ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender
+-ERROR in ch.qos.logback.core.model.processor.DefaultProcessor@6258f669 - Failed to traverse model appender ch.qos.logback.core.model.processor.ModelHandlerException: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender
+-ERROR in ch.qos.logback.core.model.processor.AppenderModelHandler - Could not create an Appender of type [net.logstash.logback.appender.LogstashTcpSocketAppender]. ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender
+-ERROR in ch.qos.logback.core.model.processor.DefaultProcessor@6258f669 - Failed to traverse model appender ch.qos.logback.core.model.processor.ModelHandlerException: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender
+-	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reportConfigurationErrorsIfNecessary(LogbackLoggingSystem.java:284)
+-	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:262)
+-	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:81)
+-	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:61)
+-	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:193)
+-	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:332)
+-	... 24 common frames omitted
+-	Suppressed: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender
+-		at ch.qos.logback.core.util.OptionHelper.instantiateByClassNameAndParameter(OptionHelper.java:69)
+-		at ch.qos.logback.core.util.OptionHelper.instantiateByClassName(OptionHelper.java:44)
+-		at ch.qos.logback.core.util.OptionHelper.instantiateByClassName(OptionHelper.java:33)
+-		at ch.qos.logback.core.model.processor.AppenderModelHandler.handle(AppenderModelHandler.java:67)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:241)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:253)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.traversalLoop(DefaultProcessor.java:90)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.process(DefaultProcessor.java:106)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.processModel(GenericXMLConfigurator.java:222)
+-		at org.springframework.boot.logging.logback.SpringBootJoranConfigurator.processModel(SpringBootJoranConfigurator.java:133)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:178)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:123)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:66)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.configureByResourceUrl(LogbackLoggingSystem.java:294)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.lambda$loadConfiguration$1(LogbackLoggingSystem.java:255)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.withLoggingSuppressed(LogbackLoggingSystem.java:474)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:249)
+-		... 28 common frames omitted
+-	Caused by: java.lang.ClassNotFoundException: net.logstash.logback.appender.LogstashTcpSocketAppender
+-		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+-		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+-		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+-		at ch.qos.logback.core.util.OptionHelper.instantiateByClassNameAndParameter(OptionHelper.java:56)
+-		... 44 common frames omitted
+-	Suppressed: ch.qos.logback.core.model.processor.ModelHandlerException: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender
+-		at ch.qos.logback.core.model.processor.AppenderModelHandler.handle(AppenderModelHandler.java:75)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:241)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:253)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.traversalLoop(DefaultProcessor.java:90)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.process(DefaultProcessor.java:106)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.processModel(GenericXMLConfigurator.java:222)
+-		at org.springframework.boot.logging.logback.SpringBootJoranConfigurator.processModel(SpringBootJoranConfigurator.java:133)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:178)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:123)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:66)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.configureByResourceUrl(LogbackLoggingSystem.java:294)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.lambda$loadConfiguration$1(LogbackLoggingSystem.java:255)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.withLoggingSuppressed(LogbackLoggingSystem.java:474)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:249)
+-		... 28 common frames omitted
+-	Caused by: [CIRCULAR REFERENCE: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender]
+-	Suppressed: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender
+-		at ch.qos.logback.core.util.OptionHelper.instantiateByClassNameAndParameter(OptionHelper.java:69)
+-		at ch.qos.logback.core.util.OptionHelper.instantiateByClassName(OptionHelper.java:44)
+-		at ch.qos.logback.core.util.OptionHelper.instantiateByClassName(OptionHelper.java:33)
+-		at ch.qos.logback.core.model.processor.AppenderModelHandler.handle(AppenderModelHandler.java:67)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:241)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:253)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.traversalLoop(DefaultProcessor.java:90)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.process(DefaultProcessor.java:106)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.processModel(GenericXMLConfigurator.java:222)
+-		at org.springframework.boot.logging.logback.SpringBootJoranConfigurator.processModel(SpringBootJoranConfigurator.java:133)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:178)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:123)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:66)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.configureByResourceUrl(LogbackLoggingSystem.java:294)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.lambda$loadConfiguration$1(LogbackLoggingSystem.java:255)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.withLoggingSuppressed(LogbackLoggingSystem.java:474)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:249)
+-		... 28 common frames omitted
+-	Caused by: java.lang.ClassNotFoundException: net.logstash.logback.appender.LogstashTcpSocketAppender
+-		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+-		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+-		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+-		at ch.qos.logback.core.util.OptionHelper.instantiateByClassNameAndParameter(OptionHelper.java:56)
+-		... 44 common frames omitted
+-	Suppressed: ch.qos.logback.core.model.processor.ModelHandlerException: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender
+-		at ch.qos.logback.core.model.processor.AppenderModelHandler.handle(AppenderModelHandler.java:75)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:241)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.secondPhaseTraverse(DefaultProcessor.java:253)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.traversalLoop(DefaultProcessor.java:90)
+-		at ch.qos.logback.core.model.processor.DefaultProcessor.process(DefaultProcessor.java:106)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.processModel(GenericXMLConfigurator.java:222)
+-		at org.springframework.boot.logging.logback.SpringBootJoranConfigurator.processModel(SpringBootJoranConfigurator.java:133)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:178)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:123)
+-		at ch.qos.logback.core.joran.GenericXMLConfigurator.doConfigure(GenericXMLConfigurator.java:66)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.configureByResourceUrl(LogbackLoggingSystem.java:294)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.lambda$loadConfiguration$1(LogbackLoggingSystem.java:255)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.withLoggingSuppressed(LogbackLoggingSystem.java:474)
+-		at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:249)
+-		... 28 common frames omitted
+-	Caused by: [CIRCULAR REFERENCE: ch.qos.logback.core.util.DynamicClassLoadingException: Failed to instantiate type net.logstash.logback.appender.LogstashTcpSocketAppender]
+-
+-2024-10-17T15:46:01.275+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] c.nrapendra.AccountServiceApplication    : Starting AccountServiceApplication using Java 17.0.11 with PID 2544 (C:\Users\triva\salesforce-examples\springboot-salesforce-demo\sf-account-service\target\classes started by trivajay259@gmail.com in C:\Users\triva\salesforce-examples\springboot-salesforce-demo)
+-2024-10-17T15:46:01.307+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] c.nrapendra.AccountServiceApplication    : The following 1 profile is active: "salesforce"
+-2024-10-17T15:46:01.876+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+-2024-10-17T15:46:01.877+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+-2024-10-17T15:46:08.364+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+-2024-10-17T15:46:08.785+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 380 ms. Found 1 JPA repository interface.
+-2024-10-17T15:46:10.052+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7290b4dd-2039-35d9-9750-0931956fa9be
+-2024-10-17T15:46:12.942+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+-2024-10-17T15:46:12.995+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+-2024-10-17T15:46:13.000+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+-2024-10-17T15:46:13.371+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+-2024-10-17T15:46:13.373+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 11492 ms
+-2024-10-17T15:46:13.529+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+-2024-10-17T15:46:14.675+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db user=SA
+-2024-10-17T15:46:14.683+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+-2024-10-17T15:46:14.722+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+-2024-10-17T15:46:15.307+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: accountPersistenceUnitName]
+-2024-10-17T15:46:15.556+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+-2024-10-17T15:46:15.703+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+-2024-10-17T15:46:17.537+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+-2024-10-17T15:46:17.618+02:00  WARN [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001002: Using built-in connection pool (not intended for production use)
+-2024-10-17T15:46:17.619+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Loaded JDBC driver class: org.h2.Driver
+-2024-10-17T15:46:17.622+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'classpath:init.sql']
+-2024-10-17T15:46:17.624+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001001: Connection properties: {password=****, user=sa}
+-2024-10-17T15:46:17.625+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001003: Autocommit mode: false
+-2024-10-17T15:46:17.640+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001115: Connection pool size: 20 (min=1)
+-2024-10-17T15:46:17.896+02:00  WARN [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+-2024-10-17T15:46:21.796+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+-2024-10-17T15:46:21.860+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5b27055d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+-2024-10-17T15:46:21.892+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1f4f9162] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+-2024-10-17T15:46:22.055+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'accountPersistenceUnitName'
+-2024-10-17T15:46:23.171+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+-2024-10-17T15:46:23.957+02:00  WARN [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+-2024-10-17T15:46:24.185+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+-2024-10-17T15:46:24.214+02:00  WARN [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+-2024-10-17T15:46:26.677+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+-2024-10-17T15:46:27.244+02:00  WARN [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'compositeCompatibilityVerifier' defined in class path resource [org/springframework/cloud/configuration/CompatibilityVerifierAutoConfiguration.class]: Failed to instantiate [org.springframework.cloud.configuration.CompositeCompatibilityVerifier]: Factory method 'compositeCompatibilityVerifier' threw exception with message: Spring Cloud/ Spring Boot version compatibility checks have failed: [[VerificationResult@55c41d18 description = 'Spring Cloud Sleuth is not compatible with this Spring Cloud release train', action = 'Migrate from Spring Cloud Sleuth to Micrometer Tracing .
+-You can check the Sleuth 3.1 Migration Guide over here [https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide]. 
+-If you want to disable this check, just set the property [spring.cloud.compatibility-verifier.enabled=false]']]
+-2024-10-17T15:46:27.269+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'accountPersistenceUnitName'
+-2024-10-17T15:46:27.272+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001008: Cleaning up connection pool [jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'classpath:init.sql']
+-2024-10-17T15:46:27.517+02:00  WARN [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Die Datenbank wurde bereits geschlossen (um das automatische Schliessen beim Stopp der VM zu deaktivieren, die Datenbank URL mit ";DB_CLOSE_ON_EXIT=FALSE" ergänzen)
+-Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-214]
+-2024-10-17T15:46:27.520+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+-2024-10-17T15:46:27.529+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+-2024-10-17T15:46:27.540+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+-2024-10-17T15:46:27.611+02:00  INFO [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+-
+-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+-2024-10-17T15:46:27.692+02:00 ERROR [salesforce-account-management,,] 2544 --- [salesforce-account-management] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+-
+-***************************
+-APPLICATION FAILED TO START
+-***************************
+-
+-Description:
+-
+-Your project setup is incompatible with our requirements due to following reasons:
+-
+-- Spring Cloud Sleuth is not compatible with this Spring Cloud release train
+-
+-
+-Action:
+-
+-Consider applying the following actions:
+-
+-- Migrate from Spring Cloud Sleuth to Micrometer Tracing .
+-You can check the Sleuth 3.1 Migration Guide over here [https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide]. 
+-If you want to disable this check, just set the property [spring.cloud.compatibility-verifier.enabled=false]
+-
+-
+-2024-10-17T15:47:30.618+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] c.nrapendra.AccountServiceApplication    : Starting AccountServiceApplication using Java 17.0.11 with PID 5260 (C:\Users\triva\salesforce-examples\springboot-salesforce-demo\sf-account-service\target\classes started by trivajay259@gmail.com in C:\Users\triva\salesforce-examples\springboot-salesforce-demo)
+-2024-10-17T15:47:30.627+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] c.nrapendra.AccountServiceApplication    : The following 1 profile is active: "salesforce"
+-2024-10-17T15:47:31.170+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+-2024-10-17T15:47:31.171+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+-2024-10-17T15:47:36.179+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+-2024-10-17T15:47:36.501+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 283 ms. Found 1 JPA repository interface.
+-2024-10-17T15:47:37.639+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7290b4dd-2039-35d9-9750-0931956fa9be
+-2024-10-17T15:47:39.946+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+-2024-10-17T15:47:40.015+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+-2024-10-17T15:47:40.020+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+-2024-10-17T15:47:40.358+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+-2024-10-17T15:47:40.360+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 9187 ms
+-2024-10-17T15:47:40.496+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+-2024-10-17T15:47:41.421+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db user=SA
+-2024-10-17T15:47:41.429+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+-2024-10-17T15:47:41.463+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+-2024-10-17T15:47:42.008+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: accountPersistenceUnitName]
+-2024-10-17T15:47:42.302+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+-2024-10-17T15:47:42.455+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+-2024-10-17T15:47:44.089+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+-2024-10-17T15:47:44.151+02:00  WARN [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001002: Using built-in connection pool (not intended for production use)
+-2024-10-17T15:47:44.153+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Loaded JDBC driver class: org.h2.Driver
+-2024-10-17T15:47:44.155+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'classpath:init.sql']
+-2024-10-17T15:47:44.171+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001001: Connection properties: {password=****, user=sa}
+-2024-10-17T15:47:44.172+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001003: Autocommit mode: false
+-2024-10-17T15:47:44.182+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001115: Connection pool size: 20 (min=1)
+-2024-10-17T15:47:44.427+02:00  WARN [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+-2024-10-17T15:47:47.761+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+-2024-10-17T15:47:47.837+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5b27055d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+-2024-10-17T15:47:47.873+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1f4f9162] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+-2024-10-17T15:47:47.922+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'accountPersistenceUnitName'
+-2024-10-17T15:47:49.041+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+-2024-10-17T15:47:49.822+02:00  WARN [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+-2024-10-17T15:47:50.017+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+-2024-10-17T15:47:50.020+02:00  WARN [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+-2024-10-17T15:47:52.617+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+-2024-10-17T15:47:53.186+02:00  WARN [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'compositeCompatibilityVerifier' defined in class path resource [org/springframework/cloud/configuration/CompatibilityVerifierAutoConfiguration.class]: Failed to instantiate [org.springframework.cloud.configuration.CompositeCompatibilityVerifier]: Factory method 'compositeCompatibilityVerifier' threw exception with message: Spring Cloud/ Spring Boot version compatibility checks have failed: [[VerificationResult@55c41d18 description = 'Spring Cloud Sleuth is not compatible with this Spring Cloud release train', action = 'Migrate from Spring Cloud Sleuth to Micrometer Tracing .
+-You can check the Sleuth 3.1 Migration Guide over here [https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide]. 
+-If you want to disable this check, just set the property [spring.cloud.compatibility-verifier.enabled=false]']]
+-2024-10-17T15:47:53.199+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'accountPersistenceUnitName'
+-2024-10-17T15:47:53.202+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001008: Cleaning up connection pool [jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'classpath:init.sql']
+-2024-10-17T15:47:53.465+02:00  WARN [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Die Datenbank wurde bereits geschlossen (um das automatische Schliessen beim Stopp der VM zu deaktivieren, die Datenbank URL mit ";DB_CLOSE_ON_EXIT=FALSE" ergänzen)
+-Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-214]
+-2024-10-17T15:47:53.470+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+-2024-10-17T15:47:53.477+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+-2024-10-17T15:47:53.489+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+-2024-10-17T15:47:53.560+02:00  INFO [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+-
+-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+-2024-10-17T15:47:53.643+02:00 ERROR [salesforce-account-management,,] 5260 --- [salesforce-account-management] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+-
+-***************************
+-APPLICATION FAILED TO START
+-***************************
+-
+-Description:
+-
+-Your project setup is incompatible with our requirements due to following reasons:
+-
+-- Spring Cloud Sleuth is not compatible with this Spring Cloud release train
+-
+-
+-Action:
+-
+-Consider applying the following actions:
+-
+-- Migrate from Spring Cloud Sleuth to Micrometer Tracing .
+-You can check the Sleuth 3.1 Migration Guide over here [https://github.com/micrometer-metrics/tracing/wiki/Spring-Cloud-Sleuth-3.1-Migration-Guide]. 
+-If you want to disable this check, just set the property [spring.cloud.compatibility-verifier.enabled=false]
+-
+-
+-2024-10-17T15:59:05.037+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] c.nrapendra.AccountServiceApplication    : Starting AccountServiceApplication using Java 17.0.11 with PID 10020 (C:\Users\triva\salesforce-examples\springboot-salesforce-demo\sf-account-service\target\classes started by trivajay259@gmail.com in C:\Users\triva\salesforce-examples\springboot-salesforce-demo)
+-2024-10-17T15:59:05.045+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] c.nrapendra.AccountServiceApplication    : The following 1 profile is active: "salesforce"
+-2024-10-17T15:59:05.561+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+-2024-10-17T15:59:05.562+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+-2024-10-17T15:59:10.457+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+-2024-10-17T15:59:10.767+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 276 ms. Found 1 JPA repository interface.
+-2024-10-17T15:59:13.739+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+-2024-10-17T15:59:13.795+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+-2024-10-17T15:59:13.798+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+-2024-10-17T15:59:14.136+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+-2024-10-17T15:59:14.139+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8573 ms
+-2024-10-17T15:59:14.269+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+-2024-10-17T15:59:15.281+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db user=SA
+-2024-10-17T15:59:15.290+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+-2024-10-17T15:59:15.340+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+-2024-10-17T15:59:15.956+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: accountPersistenceUnitName]
+-2024-10-17T15:59:16.240+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+-2024-10-17T15:59:16.378+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+-2024-10-17T15:59:17.999+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+-2024-10-17T15:59:18.070+02:00  WARN 10020 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001002: Using built-in connection pool (not intended for production use)
+-2024-10-17T15:59:18.072+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Loaded JDBC driver class: org.h2.Driver
+-2024-10-17T15:59:18.073+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001012: Connecting with JDBC URL [jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'classpath:init.sql']
+-2024-10-17T15:59:18.076+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001001: Connection properties: {password=****, user=sa}
+-2024-10-17T15:59:18.078+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001003: Autocommit mode: false
+-2024-10-17T15:59:18.089+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001115: Connection pool size: 20 (min=1)
+-2024-10-17T15:59:18.350+02:00  WARN 10020 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+-2024-10-17T15:59:21.582+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+-2024-10-17T15:59:21.651+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@47abeb7e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+-2024-10-17T15:59:21.678+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@79d28c50] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+-2024-10-17T15:59:21.728+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'accountPersistenceUnitName'
+-2024-10-17T15:59:22.979+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+-2024-10-17T15:59:23.652+02:00  WARN 10020 --- [salesforce-account-management] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+-2024-10-17T15:59:23.887+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+-2024-10-17T15:59:23.890+02:00  WARN 10020 --- [salesforce-account-management] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+-2024-10-17T15:59:26.289+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+-2024-10-17T15:59:26.536+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+-2024-10-17T15:59:26.590+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] c.nrapendra.AccountServiceApplication    : Started AccountServiceApplication in 23.65 seconds (process running for 26.044)
+-2024-10-17T15:59:26.615+02:00  INFO 10020 --- [salesforce-account-management] [restartedMain] c.nrapendra.AccountServiceApplication    : ACCOUNT APPLICATION STARTED
+-2024-10-17T15:59:41.083+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+-2024-10-17T15:59:41.086+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+-2024-10-17T15:59:41.091+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+-2024-10-17T15:59:43.717+02:00  WARN 10020 --- [salesforce-account-management] [http-nio-8081-exec-7] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [102] milliseconds.
+-2024-10-17T15:59:50.904+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-5] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 2509 ms
+-2024-10-17T16:00:20.471+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-7] c.n.a.controllers.AccountController      : createAccount is Invoked
+-2024-10-17T16:00:34.158+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-10] c.n.a.controllers.AccountController      : getAccountById is Invoked
+-2024-10-17T16:01:06.866+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-9] c.n.a.controllers.AccountController      : findAccountByName is Invoked
+-2024-10-17T16:01:24.438+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-2] c.n.a.controllers.AccountController      : updateAccount is Invoked
+-2024-10-17T16:01:25.097+02:00  WARN 10020 --- [salesforce-account-management] [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.nrapendra.account.exceptions.AccountException: NOT_FOUND]
+-2024-10-17T16:01:40.282+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-5] c.n.a.controllers.AccountController      : updateAccount is Invoked
+-2024-10-17T16:01:51.883+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-4] c.n.a.controllers.AccountController      : deleteAccount is Invoked
+-2024-10-17T16:02:04.406+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-10] c.n.c.ApplicationDataController          : GET APPLICATION DATA IS INVOKED
+-2024-10-17T16:06:27.516+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-9] c.n.a.controllers.AccountController      : getAccountById is Invoked
+-2024-10-17T16:06:28.575+02:00  WARN 10020 --- [salesforce-account-management] [http-nio-8081-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.nrapendra.account.exceptions.AccountException: NOT_FOUND]
+-2024-10-17T16:07:58.827+02:00  INFO 10020 --- [salesforce-account-management] [http-nio-8081-exec-3] c.n.a.controllers.AccountController      : createAccount is Invoked
+-2024-10-17T16:09:22.501+02:00  INFO 10020 --- [salesforce-account-management] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'accountPersistenceUnitName'
+-2024-10-17T16:09:22.505+02:00  INFO 10020 --- [salesforce-account-management] [SpringApplicationShutdownHook] org.hibernate.orm.connections.pooling    : HHH10001008: Cleaning up connection pool [jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;INIT=RUNSCRIPT FROM 'classpath:init.sql']
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+deleted file mode 100644
+--- a/README.md	
++++ /dev/null	
+@@ -1,1 +0,0 @@
+-Working on this Demo Project using Java, SpringBoot, Salesforce and Kafka
+\ No newline at end of file
+Index: docker/docker-compose.yaml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/docker/docker-compose.yaml b/docker/docker-compose.yaml
+deleted file mode 100644
+--- a/docker/docker-compose.yaml	
++++ /dev/null	
+@@ -1,41 +0,0 @@
+-services:
+-  app:
+-    build: .
+-    ports:
+-      - "8080:8080"
+-    environment:
+-      - USERNAME=${USER_NAME}
+-      - PASSWORD=${PASSWORD}
+-      - CLIENT_ID=${CLIENT_ID}
+-      - CLIENT_SECRET=${CLIENT_SECRET}
+-      - SECURITY_TOKEN=${SECURITY_TOKEN}
+-      - TOKEN_URL=${TOKEN_URL}
+-      - LOGGING_FILE_NAME=/logs/salesforce-account-management.log
+-    volumes:
+-      - log_volume:/logs
+-  splunk:
+-    image: splunk/splunk:8.0
+-    hostname: splunk
+-    environment:
+-      - SPLUNK_START_ARGS=--accept-license
+-      - SPLUNK_USER=root
+-      - SPLUNK_ENABLE_LISTEN=9997
+-      - SPLUNK_PASSWORD=password
+-    ports:
+-      - "8000:8000"
+-  splunkforwarder:
+-    image: splunk/universalforwarder:8.0
+-    hostname: splunkforwarder
+-    environment:
+-        - SPLUNK_START_ARGS=--accept-license --answer-yes
+-        - SPLUNK_STANDALONE_URL=splunk:9997
+-        - SPLUNK_USER=root
+-        - SPLUNK_ADD=monitor /logs
+-        - SPLUNK_PASSWORD=password
+-    restart: always
+-    depends_on:
+-      - splunk
+-    volumes:
+-        - log_volume:/logs
+-volumes:
+-  log_volume:
+\ No newline at end of file
+Index: sf-account-management-service/src/main/java/com/nrapendra/Main.java
+===================================================================
+diff --git a/sf-account-management-service/src/main/java/com/nrapendra/Main.java b/sf-account-management-service/src/main/java/com/nrapendra/Main.java
+deleted file mode 100644
+--- a/sf-account-management-service/src/main/java/com/nrapendra/Main.java	
++++ /dev/null	
+@@ -1,7 +0,0 @@
+-package com.nrapendra;
+-
+-public class Main {
+-    public static void main(String[] args) {
+-        System.out.println("Hello world!");
+-    }
+-}
+\ No newline at end of file
+Index: sf-account-management-service/src/main/resources/application.properties
+===================================================================
+diff --git a/sf-account-management-service/src/main/resources/application.properties b/sf-account-management-service/src/main/resources/application.properties
+deleted file mode 100644
+--- a/sf-account-management-service/src/main/resources/application.properties	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-server.port= 8082
+-spring.application.name=sf-account-management-service
+-logging.file.name=logs/sf-account-management-service.log
+\ No newline at end of file
+Index: sf-account-management-service/src/main/java/com/nrapendra/SalesforceCaptureEventListener.java
+===================================================================
+diff --git a/sf-account-management-service/src/main/java/com/nrapendra/SalesforceCaptureEventListener.java b/sf-account-management-service/src/main/java/com/nrapendra/SalesforceCaptureEventListener.java
+deleted file mode 100644
+--- a/sf-account-management-service/src/main/java/com/nrapendra/SalesforceCaptureEventListener.java	
++++ /dev/null	
+@@ -1,24 +0,0 @@
+-package com.nrapendra;
+-
+-import lombok.extern.slf4j.Slf4j;
+-import org.springframework.stereotype.Component;
+-
+-@Component
+-@Slf4j
+-public class SalesforceCaptureEventListener {
+-
+-
+-//    private ShipmentService shipmentService;
+-//
+-//    public OrderKafkaListener(ShipmentService shipmentService) {
+-//        super();
+-//        this.shipmentService = shipmentService;
+-//    }
+-//
+-//    @KafkaListener(topics = "order")
+-//    public void order(Shipment shipment, Acknowledgment acknowledgment) {
+-//        log.info("Received shipment " + shipment.getId());
+-//        shipmentService.ship(shipment);
+-//        acknowledgment.acknowledge();
+-//    }
+-}
+Index: sf-account-application/sf-pub-sub-java-client/.env
+===================================================================
+diff --git a/sf-account-application/sf-pub-sub-java-client/.env b/sf-account-application/sf-pub-sub-java-client/.env
+new file mode 100644
+--- /dev/null	
++++ b/sf-account-application/sf-pub-sub-java-client/.env	
+@@ -0,0 +1,21 @@
++
++#LOGIN_URL
++LOGIN_URL=https://login.salesforce.com
++
++#USER
++USER=trivajay259@gmail.com
++
++#PASSWORD
++PASSWORD=Narendra786n
++
++#SECURITY_TOKEN
++SECURITY_TOKEN=ZH7SOg1UFgmtcqgPRIBruPX5V
++
++#PUB_SUB_ENDPOINT
++PUB_SUB_ENDPOINT=api.pubsub.salesforce.com:7443
++
++#TOPIC ACCOUNT_CHANGE_EVENT
++PUB_SUB.TOPICNAME=/data/AccountChangeEvent
++
++#EVENT RECEIVE LIMIT
++PUB_SUB.EVENT_RECEIVE_LIMIT=1
+\ No newline at end of file

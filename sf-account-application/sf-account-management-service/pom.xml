@@ -12,6 +12,7 @@
     </parent>
 
     <artifactId>sf-account-management-service</artifactId>
+    <packaging>war</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -21,7 +22,7 @@
         <springdoc-openapi-starter-webmvc-ui.version>2.6.0</springdoc-openapi-starter-webmvc-ui.version>
         <sonar.organization>nrapendra786</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.projectKey>Nrapendra786_springboot-salesforce-account-demo</sonar.projectKey>
+<!--        <sonar.projectKey>Nrapendra786_springboot-salesforce-account-demo</sonar.projectKey>-->
     </properties>
 
     <dependencies>

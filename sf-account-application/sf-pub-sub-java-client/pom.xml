@@ -7,19 +7,21 @@
 
     <groupId>com.nrapendra</groupId>
     <artifactId>sf-pub-sub-java-client</artifactId>
-    <version>0.0.1-SNAPSHOT</version> 
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <grpc.version>1.63.0</grpc.version>
-        <protobuf.version>3.25.5</protobuf.version>
+        <protobuf.version>4.28.2</protobuf.version>
         <protoc.version>3.25.5</protoc.version>
         <maven.compiler.showWarnings>true</maven.compiler.showWarnings>
         <sonar.organization>nrapendra786</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.projectKey>Nrapendra786_springboot-salesforce-account-demo</sonar.projectKey>
+<!--        <sonar.projectKey>Nrapendra786_springboot-salesforce-account-demo</sonar.projectKey>-->
     </properties>
 
     <build>
