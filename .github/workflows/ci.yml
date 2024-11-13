@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: 
+        service:
           - commons
           - sf-account-service
           - sf-pub-sub-java-client
@@ -52,31 +52,27 @@ jobs:
             ~/.m2/repository
             ~/.sonar/cache
           key: |
-            ${{ env.MAVEN_CACHE_KEY }}
-            ${{ env.SONAR_CACHE_KEY }}
+            ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+            ${{ runner.os }}-sonar-${{ hashFiles('**/pom.xml') }}
 
       - name: Build and Test Project
         run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests
 
-        # Install Snyk
       - name: Install Snyk CLI
         run: npm install -g snyk
 
-      # Authenticate Snyk
       - name: Authenticate Snyk
         run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
-      # Run Snyk test for vulnerabilities
       - name: Run Snyk Test
-        run: snyk test
+        run: cd sf-account-application && snyk test
 
-      # Run Snyk monitor for continuous monitoring (optional)
       - name: Monitor with Snyk
-        run: snyk monitor
+        run: cd sf-account-application && snyk monitor
 
       - name: Build, Analyze and Test ${{ matrix.service }}
-        env: 
-            TESTCONTAINERS_HOST_OVERRIDE: localhost
+        env:
+          TESTCONTAINERS_HOST_OVERRIDE: localhost
         working-directory: ./sf-account-application/${{ matrix.service }}
         run: mvn clean -B verify sonar:sonar -Dsonar.coverage.exclusions=**/* -Dsonar.projectKey=$SONAR_PROJECTKEY
 
@@ -108,9 +104,3 @@ jobs:
 
       - name: Log out of Docker Hub
         run: docker logout
-
-      
-
-        
-
-
