@@ -1,4 +1,8 @@
-PROJECT_STATUS: IN PROGRESS <br/>
+
+[![Known Vulnerabilities](https://app.snyk.io/test/github/Nrapendra786/springboot-salesforce-account-demo/badge.svg)](https://snyk.io/test/github/Nrapendra786/springboot-salesforce-account-demo)
+
+
+
 # Demo Project developed using Java, SpringBoot, Apache Kafka and Salesforce Cloud
 
 Prerequisites: Java 17 and Docker must be installed in the system.
