@@ -1,12 +1,6 @@
-name: CI/CD Pipeline
+name: Daily CI/CD Pipeline
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
   schedule: 
     - cron: '0 0 * * *'
 
@@ -57,9 +51,6 @@ jobs:
             ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
             ${{ runner.os }}-sonar-${{ hashFiles('**/pom.xml') }}
 
-      - name: Build and Test Project
-        run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests
-
       - name: Install Snyk CLI
         run: npm install -g snyk
 
@@ -72,6 +63,9 @@ jobs:
       - name: Monitor with Snyk
         run: cd sf-account-application && snyk monitor
 
+      - name: Build and Test Project
+        run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests
+        
       - name: Build, Analyze and Test ${{ matrix.service }}
         env:
           TESTCONTAINERS_HOST_OVERRIDE: localhost
