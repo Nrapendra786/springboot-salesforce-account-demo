@@ -5,7 +5,7 @@
 
 # Demo Project developed using Java, SpringBoot, Apache Kafka and Salesforce Cloud
 
-Prerequisites: Java 17 and Docker must be installed in the system.
+Prerequisites: Docker must be installed in the system.
 
 Before starting to use this project, please create a Salesforce account. After that, create a new connected app and save the following parameters from Salesforce.com in environment variables:
 1) Username
