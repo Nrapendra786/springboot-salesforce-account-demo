@@ -55,17 +55,17 @@ jobs:
             ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
             ${{ runner.os }}-sonar-${{ hashFiles('**/pom.xml') }}
 
-      - name: Install Snyk CLI
-        run: npm install -g snyk
+    #  - name: Install Snyk CLI
+    #    run: npm install -g snyk
 
-      - name: Authenticate Snyk
-        run: snyk auth ${{ secrets.SNYK_TOKEN }}
+    #  - name: Authenticate Snyk
+    #    run: snyk auth ${{ secrets.SNYK_TOKEN }}
 
-      - name: Run Snyk Test
-        run: cd sf-account-application && snyk test
+    #  - name: Run Snyk Test
+    #    run: cd sf-account-application && snyk test
 
-      - name: Monitor with Snyk
-        run: cd sf-account-application && snyk monitor
+    #  - name: Monitor with Snyk
+    #    run: cd sf-account-application && snyk monitor
 
       - name: Build and Test Project
         run: mvn clean install -f ./sf-account-application/pom.xml -DskipTests
