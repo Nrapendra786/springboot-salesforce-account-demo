@@ -35,6 +35,7 @@ jobs:
       DB_USER: ${{ secrets.DB_USER }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
