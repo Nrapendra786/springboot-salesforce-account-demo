@@ -74,7 +74,8 @@ jobs:
         env:
           TESTCONTAINERS_HOST_OVERRIDE: localhost
         working-directory: ./sf-account-application/${{ matrix.service }}
-        run: mvn clean -B verify sonar:sonar -Dsonar.coverage.exclusions=**/* -Dsonar.projectKey=$SONAR_PROJECTKEY
+        run: mvn clean -B verify 
+        #sonar:sonar -Dsonar.coverage.exclusions=**/* -Dsonar.projectKey=$SONAR_PROJECTKEY
 
   docker-publish:
     name: Build and Push Docker Image
