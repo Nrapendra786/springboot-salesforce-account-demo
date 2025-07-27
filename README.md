@@ -39,6 +39,6 @@ I created following services in this demo project.
    docker-compose up -d
 ## Stop Application
   cd [path to rootfolder]  <br/>
-   docker-compose down --rmi all
+   docker-compose down -v
 ## Contact Author
   trivajay259@gmail.com
