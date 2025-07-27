@@ -1,6 +1,8 @@
 
 [![Known Vulnerabilities](https://app.snyk.io/test/github/Nrapendra786/springboot-salesforce-account-demo/badge.svg)](https://snyk.io/test/github/Nrapendra786/springboot-salesforce-account-demo)
 
+Book Link : https://www.amazon.de/-/en/Tobias-Weissmann-ebook/dp/B0F1Z4LDDH(This book helped me a lot to create a solution)
+
 
 # Demo Project developed using Java, SpringBoot, Apache Kafka and Salesforce Cloud
 
